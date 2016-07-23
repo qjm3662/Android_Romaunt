@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.mylhyl\commonrefreshlayout\1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="39f8571f22c87e288d2a04a892288f73f59a6ab2">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mylhyl-commonrefreshlayout-1.0_5af970a4674233dbfec227142324ce07e781dc8c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_9438b389c6adb11139f2484ec46905b199d58cd9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="5e88a2a26ac71cd7f8fd8bd9f9381fa06d1a47a3">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-imagepipeline-base-0.10.0_a0d0cd5bebb0cacc9b99ae8c6c5be22d48419108\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.yalantis\phoenix\1.2.3\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="4dfe2dd3f402072c5268f341830cdc5263187074">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.yalantis-phoenix-1.2.3_0fab5dea26a4fb23da91e533adc4e3b11f771574\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_25f87d6468d13898d186a53ab53d01bb44f6a5e5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="857099e23430445aeb65cf703d5adf646ff280f1">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fresco-0.10.0_63ea856b0a4caeead9c68ea1201de8978e8b2e02\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.netflix.feign\feign-core\8.17.0\4132f06a05d3cd268704c41e749b9aa47919236a\feign-core-8.17.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="4132f06a05d3cd268704c41e749b9aa47919236a">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\feign-core-8.17.0_f79a3424f34683cb83bb6ffc3006143067f13a18\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\homhomlin.lib\frescoimageview\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="a4e3e74aee029871dd160c31e6230ea7e2101340">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\homhomlin.lib-frescoimageview-1.3.0_65d8424f0157eb1cebc23ea4fc99739ae012bc82\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="d5b3524dfcaebc15095df14a75bd4b25d60a836b">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b193d1bd175e2107f5e8984882977d91b663f405\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.5\686c608d1805b6d4d425ec4459e88164ffc85870\gson-2.5.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.5_9de5f9d5d8e60730cec5d9178ff2f853af87c0cf\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_dca1bddbfa764c5c4a70cf7e0dc750bcdab78404\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.yalantis\contextmenu\1.0.7\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="a751094b3149197fc97f509127ec65ed2329350f">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.yalantis-contextmenu-1.0.7_c4cd1e816a40500ea0267b42ce1741cd06d6eeea\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.3.0_d9b54e514a493a90a8e3af5c6cdb9a67f4008e8e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_f99ab861cb79cb301a5408d1cfe9cf9382188047\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_0e0d85f9f746468793cdc8d2e6e77872a7f60e72\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="6e1ed00013584399dbe27d45ac1fd6a9828c9fca">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-imagepipeline-0.10.0_1d8c0dfc7bce10f97f845799efff75d982132987\classes.dex" />
+    </item>
+    <item
+        jar="E:\Romaint\libs\jpush-android-2.1.7.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="38dd284400de7ff5fab09098a1b8fd30cc5980c7">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\2\jpush-android-2.1.7_caa0e9e2a01acc83683200480fbe28ea0369f140\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.1.4_8eb644a0f98ce2b96efab1c8d6cf3eee5fcdc1ab\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_37c55d53b9c1f7f4a8cb9f7a63369f1c3df8e060\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.netflix.feign\feign-gson\8.17.0\eca0c93fe55abf1643e0ec3d2002b6b8be3f98e7\feign-gson-8.17.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="eca0c93fe55abf1643e0ec3d2002b6b8be3f98e7">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\feign-gson-8.17.0_dd76aafaf213bb1cc13a546fc8a2f61bbe4fba58\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\org.jvnet\animal-sniffer-annotation\1.0\67da8e0d8a8ef79c461a489f9f7bb3e86e23ccae\animal-sniffer-annotation-1.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="67da8e0d8a8ef79c461a489f9f7bb3e86e23ccae">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\animal-sniffer-annotation-1.0_161b2d0743ea341fc334e967bf5ed74a61bf17b9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_187afe99a076ce00d3dee9542ecb505ae2ffe6c3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f46dcd965f4946ca152122740a065946336fc261">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_fe6e2767194a8c04be8e85562afd4f07f65e9c1a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.makeramen\roundedimageview\2.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.makeramen-roundedimageview-2.2.1_280ad26cec5ae3c368ee06ede16933a6d2391456\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="65f0c887ee1f57cd0ea65b228e39b7f35372b798">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-drawee-0.10.0_9ab993790db5b2faa7e0f8dd5e2eefbfe8375643\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="d323cf4983bdfce7136a1ce5e32710e1b36b20fe">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fbcore-0.10.0_49a1801dd58ce11648fce093ae6da84b04fba55d\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_video\Android_SDK\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_17060385ecd21645db84905cf0442b412a111a95\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_579b1a00c709012736d6488cd9831788f681fddd\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.zhy\okhttputils\2.4.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="aa6f74194806099bd3ea8e9ce3d9be4aa7d67e1c">
+        <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.zhy-okhttputils-2.4.1_f99b014f96a3ce8fc97b5ffb84e67f4b668aa0ae\classes.dex" />
+    </item>
+
+</items>

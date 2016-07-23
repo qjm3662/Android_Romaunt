@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commonrefreshlayout-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mylhyl/commonrefreshlayout/1.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mylhyl/commonrefreshlayout/1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mylhyl/commonrefreshlayout/1.0/62dd48e2d9927935a1a261b05a3deb58ddc9290/commonrefreshlayout-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
