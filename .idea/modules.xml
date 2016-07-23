@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Romaint.iml" filepath="$PROJECT_DIR$/Romaint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android_Romaunt.iml" filepath="$PROJECT_DIR$/Android_Romaunt.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

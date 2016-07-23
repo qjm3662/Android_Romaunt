@@ -1,0 +1,202 @@
+1、注册登录
+
+Register UP
+1、mobile
+2、password
+3、code
+4、userName
+5、avatar
+
+Login UP
+1、mobile
+2、password
+
+Reset UP
+1、mobile
+2、code（短信验证码）
+3、newPwd（新密码）
+
+
+Register/Login DOWN
+1、userID
+2、LoginToken
+3、token（根据密码和mobile生成的用户凭证，用于获取LoginToken）
+
+//注意：LoginToken全部放在request header里面
+//格式为: {LoginToken：LoginToken}
+
+2、用户信息获取<启动APP的时候获取最新内容>
+
+UserInfo UP
+1、userID
+2、LoginToken
+
+UserInfo DOWN
+1、userName（我的昵称）
+2、avatar（我的头像URL）
+3、sex（我的性别）
+4、sign（我的个性签名）
+5、followingEnable（是否公开我关注的人）
+6、followerEnable（是否公开关注我的人）
+7、aboutNotice（是否通知相关消息<赞、评论、转发、收藏等>）
+8、updateNotice（是否通知文章更新）
+9、noticeEnable（是否消息免打扰）
+
+3、云平台的故事的获取
+
+StoryList UP
+1、userID
+2、LoginToken
+3、page（页码）
+4、count（一页数据的数量）
+
+StoryList DOWN
+1、storyID
+2、title
+3、flags（标签）
+4、content（部分内容，用于展示）
+5、time
+6、publicEnable（是否公开）
+7、personID（作者ID）
+8、personName（作者名称）
+9、personAvatar（作者头像）
+10、personSign（作者签名）
+10、likeCount
+
+Story UP
+1、userID
+2、LoginToken
+3、storyID
+
+Story DOWN
+1、content
+2、storyUrl
+3、isLike
+4、isCollection
+
+AddStory UP
+1、userID
+2、LoginToken
+3、title
+4、flags
+5、content
+6、time
+7、publicEnable（是否公开）
+
+Like/Collection UP
+1、userID
+2、LoginToken
+3、storyID
+4、isLike/isCollection
+
+PersonInfo UP
+//1、userID
+2、LoginToken
+3、authorID
+
+PersonInfo DOWN
+1、sex
+2、followingEnable（是否公开我关注的人）
+3、followerEnable（是否公开关注我的人）
+4、followingCount
+5、followerCount
+6、StoryList
+
+Reply UP
+1、userID
+2、LoginToken
+3、personID
+4、storyID
+5、replyContent
+6、replyID（被评论的评论的ID）
+
+ReplyList UP
+1、userID
+2、LoginToken
+3、storyID
+
+ReplyList DOWN
+1、replyCotent
+2、sendID
+3、sendName
+3、acceptID
+4、acceptName
+5、replyID
+6、time
+
+Notice DOWN
+1、type
+2、personID
+3、storyID
+4、storyTitle
+5、personName
+6、time
+7、replyID
+
+1、赞了文章
+2、收藏了文章
+3、文章更新
+
+4、评论了文章
+5、回复了评论
+NoticeReplyDetail UP
+1、userID
+2、LoginToken
+3、replyID
+
+NoticeReplyDetail DOWN
+1、ReplyList
+
+
+//以上2016/4/7
+
+PersonalChat UP
+1、userID
+2、LoginToken
+3、revID （接收方的ID）
+4、content（内容）
+
+PersonalChat DOWN
+1、senderID
+2、content
+
+UserInfoUpdate UP
+*、userID
+*、LoginToken
+*、userName（我的昵称）
+*、avatar（我的头像URL）
+*、sex（我的性别）
+*、sign（我的个性签名）
+
+
+UserInfoUpdate DOWN
+*、userID
+*、LoginToken
+*、userName（我的昵称）
+*、avatar（我的头像URL）
+*、sex（我的性别）
+*、sign（我的个性签名）
+*、followingEnable（是否公开我关注的人）
+*、followerEnable（是否公开关注我的人）
+*、aboutNotice（是否通知相关消息<赞、评论、转发、收藏等>）
+*、updateNotice（是否通知文章更新）
+*、noticeEnable（是否消息免打扰）
+
+
+SettingsUpdate UP
+*、userID
+*、LoginToken
+*、followingEnable（是否公开我关注的人）
+*、followerEnable（是否公开关注我的人）
+*、aboutNotice（是否通知相关消息<赞、评论、转发、收藏等>）
+*、updateNotice（是否通知文章更新）
+*、noticeEnable（是否消息免打扰）
+
+SettingsUpdate DOWN
+*、userID
+*、LoginToken
+*、followingEnable（是否公开我关注的人）
+*、followerEnable（是否公开关注我的人）
+*、aboutNotice（是否通知相关消息<赞、评论、转发、收藏等>）
+*、updateNotice（是否通知文章更新）
+*、noticeEnable（是否消息免打扰）

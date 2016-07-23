@@ -162,7 +162,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="赞"
-                    android:textColor="@color/green"
+                    android:textColor="?attr/textColorLight"
                     android:textSize="11sp" />
             </RelativeLayout>
         </RelativeLayout>
@@ -194,7 +194,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="收藏"
-                    android:textColor="@color/green"
+                    android:textColor="?attr/textColorLight"
                     android:textSize="11sp" />
             </RelativeLayout>
         </RelativeLayout>
@@ -225,7 +225,7 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="评论"
-                    android:textColor="@color/gray_normal"
+                    android:textColor="?attr/textColorLight"
                     android:textSize="11sp" />
             </RelativeLayout>
         </RelativeLayout>

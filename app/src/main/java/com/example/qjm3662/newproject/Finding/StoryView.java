@@ -171,7 +171,6 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         comment.setBgResource(R.drawable.white);
         comment.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         comment.setMenuTextAppearanceStyle(R.style.TextViewStyle);
-        comment.setTextColor(R.color.dark_normal);
 
         List<MenuObject> menuObjects = new ArrayList<>();
         menuObjects.add(transmit);
@@ -277,7 +276,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             tv_favour.setTextColor(getResources().getColor(R.color.green));
         } else {
             img_praise.setImageResource(R.drawable.img_favour);
-            tv_favour.setTextColor(getResources().getColor(R.color.gray_normal));
+            if(App.Switch_state_mode){
+                tv_favour.setTextColor(getResources().getColor(R.color.gray_light));
+            }else{
+                tv_favour.setTextColor(getResources().getColor(R.color.dark_normal));
+            }
         }
 
         if (collect_state) {
@@ -285,7 +288,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             tv_collect.setTextColor(getResources().getColor(R.color.green));
         } else {
             img_collect.setImageResource(R.drawable.img_collect);
-            tv_collect.setTextColor(getResources().getColor(R.color.gray_normal));
+            if(App.Switch_state_mode){
+                tv_collect.setTextColor(getResources().getColor(R.color.gray_light));
+            }else{
+                tv_collect.setTextColor(getResources().getColor(R.color.dark_normal));
+            }
         }
 
 
@@ -371,7 +378,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         if (collect_state) {
             collect_state = false;
             img_collect.setImageResource(R.drawable.img_collect);
-            tv_collect.setTextColor(getResources().getColor(R.color.gray_normal));
+            if(App.Switch_state_mode){
+                tv_collect.setTextColor(getResources().getColor(R.color.gray_light));
+            }else{
+                tv_collect.setTextColor(getResources().getColor(R.color.dark_normal));
+            }
         } else {
             collect_state = true;
             img_collect.setImageResource(R.drawable.img_collect_choose);
@@ -383,7 +394,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         if (praise_state) {
             praise_state = false;
             img_praise.setImageResource(R.drawable.img_favour);
-            tv_favour.setTextColor(getResources().getColor(R.color.gray_normal));
+            if(App.Switch_state_mode){
+                tv_favour.setTextColor(getResources().getColor(R.color.gray_light));
+            }else{
+                tv_favour.setTextColor(getResources().getColor(R.color.dark_normal));
+            }
         } else {
             praise_state = true;
             img_praise.setImageResource(R.drawable.img_favour_choose);
