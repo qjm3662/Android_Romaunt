@@ -61,7 +61,7 @@
         jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="d5b3524dfcaebc15095df14a75bd4b25d60a836b">
+        sha1="06922e4d582fc57b31917104978598127bf4db77">
         <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b193d1bd175e2107f5e8984882977d91b663f405\classes.dex" />
     </item>
     <item
@@ -159,7 +159,7 @@
         jar="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="f46dcd965f4946ca152122740a065946336fc261">
+        sha1="5bae01b2a59102b948d0e9fff4e58655cd2b2dcb">
         <dex dex="C:\Users\qjm3662\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_fe6e2767194a8c04be8e85562afd4f07f65e9c1a\classes.dex" />
     </item>
     <item
