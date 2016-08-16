@@ -1,10 +1,8 @@
 package com.example.qjm3662.newproject.Tool;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -23,19 +21,16 @@ import android.widget.Toast;
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
-import com.example.qjm3662.newproject.myself.MyDialog;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
+import com.example.qjm3662.newproject.myself.MyDialog;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -226,7 +221,7 @@ public class Tool {
         // 创建一个SpannableString对象，以便插入用ImageSpan对象封装的图像
         //System.out.println(Tool.getPath(this,uri));
         //<img alt="" src="1.jpg"></img>
-        path = "<img" + path + "></img>";
+        path = "<img>" + path + "<img>";
 
         SpannableString spannableString = new SpannableString(path);
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,11 +16,10 @@ import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
 import android.text.style.ImageSpan;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +28,8 @@ import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.StoryDB;
-import com.example.qjm3662.newproject.Data.User;
-import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
 import com.example.qjm3662.newproject.StoryView.StoryFragment;
-import com.example.qjm3662.newproject.StoryView.Story_pre;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.example.qjm3662.newproject.myself.MyDialog;
 
@@ -41,9 +38,10 @@ import java.io.FileNotFoundException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TimeZone;
 
-public class Edit_Story extends Activity implements View.OnClickListener {
+public class Edit_Story extends Activity implements View.OnClickListener, View.OnTouchListener {
 
     private ImageView img_exit;
     private ImageView img_flag;
@@ -53,6 +51,12 @@ public class Edit_Story extends Activity implements View.OnClickListener {
     private EditText et_input;
     private TextView tv_flag;
     private int a = 0, b = 0;
+    //用来保存分段后的文章内容
+    private String[] sa = null;
+
+    //按下点的位置（左滑加图片用）
+    private Point pre = null;
+    private boolean judgeIsFirst = true;
 
     //标记是新建还是编辑
     private boolean JUDGE;
@@ -117,7 +121,6 @@ public class Edit_Story extends Activity implements View.OnClickListener {
             }
             et_title.setText(story.getTitle());
             content = story.getContent();
-            getImg_Src(story.getContent());
             a = story.getPublicEnable();
             if (a != 0) {
                 img_is_public.setImageResource(R.drawable.img_public);
@@ -125,19 +128,24 @@ public class Edit_Story extends Activity implements View.OnClickListener {
                 img_is_public.setImageResource(R.drawable.img_privacy);
             }
             tv_flag.setText(story.getFlags());
-            display();
+            display(content);
         } else {
             img_is_public.setVisibility(View.INVISIBLE);
             tv_flag.setVisibility(View.INVISIBLE);
+//            content = "sadf sadf af\n<img>/storage/sdcard/Download/f3d3f473cd1a72cb38913f91b0220e9f.jpg<img>\n";
+//            display(content);
         }
 
 
-        if (intent.getBooleanExtra(Story_pre.COMU_CODE_READ, false)) {
-            display();
-            save_story();
-            judge = false;
-        }
+//        if (intent.getBooleanExtra(Story_pre.COMU_CODE_READ, false)) {
+//            display();
+//            save_story();
+//            judge = false;
+//        }
     }
+
+
+
 
     @Override
     protected void onDestroy() {
@@ -162,6 +170,8 @@ public class Edit_Story extends Activity implements View.OnClickListener {
         et_title.setOnClickListener(this);
         tv_flag.setOnClickListener(this);
 
+        et_input.setOnTouchListener(this);
+
         //获取手机的高度和宽度
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -169,6 +179,8 @@ public class Edit_Story extends Activity implements View.OnClickListener {
 
         //设置可滑动
         et_input.setMovementMethod(ScrollingMovementMethod.getInstance());
+
+        pre = new Point();
     }
 
     @Override
@@ -267,9 +279,9 @@ public class Edit_Story extends Activity implements View.OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        judgeIsFirst = true;
         //从图库选择图片后相应以下动作
         if (resultCode == RESULT_OK && requestCode == 0)
-
         {
             ContentResolver resolver = getContentResolver();
             // 获得图片的uri
@@ -310,7 +322,7 @@ public class Edit_Story extends Activity implements View.OnClickListener {
         //System.out.println(Tool.getPath(this,uri));
         String path = Tool.getPath(this, uri);
         //<img alt="" src="1.jpg"></img>
-        path = "<img" + path + "></img>";
+        path = "<img>" + path + "<img>";
 
         SpannableString spannableString = new SpannableString(path);
 
@@ -324,7 +336,6 @@ public class Edit_Story extends Activity implements View.OnClickListener {
             edit_text.append('\n');
             edit_text.append(spannableString);
             System.out.println("ONCE");
-
             edit_text.append('\n');
         } else {
             edit_text.insert(index, spannableString);
@@ -334,40 +345,8 @@ public class Edit_Story extends Activity implements View.OnClickListener {
         content = s;
         System.out.println(s.length());
         System.out.println(content);
-        getImg_Src(content);
+        System.out.println(Arrays.toString(content.split("<img>")));
     }
-
-    /**
-     * 解析字符串函数
-     * <p>
-     * 解析字符串内容，将其中包含的图片路径存到list中
-     * 每个图片的前后索引值存在index_list中
-     *
-     * @param content
-     */
-    public void getImg_Src(String content) {
-        list = new ArrayList<String>();
-        int index_pre = content.indexOf("<img");
-        int index_next = 0;
-        index_int.clear();
-        while (content.indexOf("<img", index_next) != -1) {
-
-            index_pre = content.indexOf("<img", index_next);
-            //图片标签索引的前值添加进index_int
-            index_int.add(index_pre);
-
-            index_next = content.indexOf("</img>", index_pre);
-            //图片标签索引的后值添加进index_int
-            index_int.add(index_next + 6);
-
-            //将包含的路径放到list中
-            list.add(content.substring(index_pre + 4, index_next - 1));
-        }
-
-        System.out.println("getImg_Src== " + list.toString());
-
-    }
-
 
     /**
      * 图文详情页面选择图片
@@ -390,7 +369,7 @@ public class Edit_Story extends Activity implements View.OnClickListener {
         date = getDate();
         System.out.println("Date : ======>" + date);
         cv.put(StoryDB.COLUMN_NAME_TITLE, et_title.getText().toString());
-        cv.put(StoryDB.COLUMN_NAME_CONTENT, et_input.getText().toString());
+        cv.put(StoryDB.COLUMN_NAME_CONTENT, content);
         cv.put(StoryDB.COLUMN_NAME_PUBLIC_ENABLE, a);
         cv.put(StoryDB.COLUMN_NAME_CREATE_AT, sdr.format(date));
         cv.put(StoryDB.COLUMN_NAME_FLAGS, tv_flag.getText().toString());
@@ -406,18 +385,17 @@ public class Edit_Story extends Activity implements View.OnClickListener {
             });
             story = App.StoryList.get(getIntent().getIntExtra("position", -1));
             story.setTitle(et_title.getText().toString());
-            story.setContent(et_input.getText().toString());
+            story.setContent(content);
             story.setCreatedAt(sdr.format(date));
             story.setPublicEnable(a);
             story.setFlags(tv_flag.getText().toString());
-
             App.StoryList.set(getIntent().getIntExtra("position", -1), story);
             System.out.println("update success");
         } else {
             //创建新故事
             story = new Story();
             story.setTitle(et_title.getText().toString());
-            story.setContent(et_input.getText().toString());
+            story.setContent(content);
             story.setCreatedAt(sdr.format(date));
             story.setPublicEnable(a);
             story.setFlags(tv_flag.getText().toString());
@@ -429,40 +407,57 @@ public class Edit_Story extends Activity implements View.OnClickListener {
     }
 
     /**
-     * 显示函数，将list、index_list和content组合显示出图文混排
+     * 显示函数，显示出图文混排
      */
-    public void display() {
-        System.out.println("Display== " + list.toString());
-        for (int i = 0; i < index_int.size(); i++) {
-            if ((i + 1) % 2 == 0) {
-                path = list.get((i + 1) / 2 - 1);
-                File file = new File(path);
-                if (file.exists()) {
-                    Bitmap bm = BitmapFactory.decodeFile(path);
-                    float multiple = (float) width / (float) bm.getWidth();
-                    bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
-                    Tool.insertPic(bm, path, Edit_Story.this, et_input);
+    public void display(String content) {
+        if(!content.equals("")){
+            sa = content.split("<img>");
+            System.out.println("Display== " + sa);
+            for (int i = 0; i < sa.length; i++) {
+                if(i % 2 == 0){
+                    edit_text.append(sa[i]);
+                }else{
+                    File file = new File(sa[i]);
+                    if(file.exists()) {
+                        Bitmap bm = BitmapFactory.decodeFile(sa[i]);
+                        float multiple = (float) width / (float) bm.getWidth();
+                        bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                        Tool.insertPic(bm, path, Edit_Story.this, et_input);
+                    }else{
+                        System.out.println("File not exist");
+                    }
                 }
             }
-            if (i == 0) {
-                assert content != null;
-                edit_text.append(content.substring(0, index_int.get(0)));
-            } else if (i % 2 != 0 && i < index_int.size() - 1) {
-                edit_text.append("    ");
-                edit_text.append(content.substring(index_int.get(i), index_int.get(i + 1)));
-            }
         }
-
-        assert content != null;
-        int start = 0, end = 0;
-        if (index_int.size() != 0) {
-            start = index_int.get(index_int.size() - 1);
-        }
-        end = content.length();
-        edit_text.append(content.substring(start, end));
     }
 
     public Date getDate() {
         return new Date(System.currentTimeMillis());
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                pre.set((int) event.getX(), (int) event.getY());
+                System.out.println( "down  : " + pre);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                System.out.println("pre : " + pre);
+                System.out.println(pre.x - width);
+                float moveX = pre.x - event.getX();
+                System.out.println();
+                if(width - pre.x< 100 && moveX > 150 && moveX < 5000){
+                    if(judgeIsFirst){
+                        judgeIsFirst = false;
+                        getImage();
+                    }
+                }
+                System.out.println("move : " + moveX);
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 }

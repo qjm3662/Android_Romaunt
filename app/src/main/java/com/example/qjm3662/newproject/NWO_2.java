@@ -14,7 +14,6 @@ import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.Finding.Comment.CommentActivity;
 import com.example.qjm3662.newproject.Finding.StoryView;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -26,8 +25,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.Call;
 
@@ -254,6 +251,29 @@ public class NWO_2 {
         System.out.println(file.exists());
         return file.getPath();
     }
+
+
+    public static String UpLoadFile(final Context context, File file, String fileName) {
+        OkHttpUtils
+                .post()//
+                .url(Final_Static_data.UP_FILE)
+                .addFile("mFile", fileName, file)//
+                .build()//
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        System.out.println("UpLoadFile fail : " + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+
+                    }
+                });
+        System.out.println(file.exists());
+        return file.getPath();
+    }
+
 
     /**
      * 保存文件
