@@ -132,8 +132,6 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
         } else {
             img_is_public.setVisibility(View.INVISIBLE);
             tv_flag.setVisibility(View.INVISIBLE);
-//            content = "sadf sadf af\n<img>/storage/sdcard/Download/f3d3f473cd1a72cb38913f91b0220e9f.jpg<img>\n";
-//            display(content);
         }
 
 
@@ -367,9 +365,12 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
         ContentValues cv = new ContentValues();
         //获取当前时间
         date = getDate();
+        System.out.println("Content : " + content);
+        System.out.println("EditTextToString : " + et_input.getText().toString());
+        System.out.println(Arrays.toString(et_input.getText().toString().split("<img>")));
         System.out.println("Date : ======>" + date);
         cv.put(StoryDB.COLUMN_NAME_TITLE, et_title.getText().toString());
-        cv.put(StoryDB.COLUMN_NAME_CONTENT, content);
+        cv.put(StoryDB.COLUMN_NAME_CONTENT, et_input.getText().toString());
         cv.put(StoryDB.COLUMN_NAME_PUBLIC_ENABLE, a);
         cv.put(StoryDB.COLUMN_NAME_CREATE_AT, sdr.format(date));
         cv.put(StoryDB.COLUMN_NAME_FLAGS, tv_flag.getText().toString());
@@ -385,7 +386,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
             });
             story = App.StoryList.get(getIntent().getIntExtra("position", -1));
             story.setTitle(et_title.getText().toString());
-            story.setContent(content);
+            story.setContent(et_input.getText().toString());
             story.setCreatedAt(sdr.format(date));
             story.setPublicEnable(a);
             story.setFlags(tv_flag.getText().toString());
@@ -395,7 +396,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
             //创建新故事
             story = new Story();
             story.setTitle(et_title.getText().toString());
-            story.setContent(content);
+            story.setContent(et_input.getText().toString());
             story.setCreatedAt(sdr.format(date));
             story.setPublicEnable(a);
             story.setFlags(tv_flag.getText().toString());
@@ -422,7 +423,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                         Bitmap bm = BitmapFactory.decodeFile(sa[i]);
                         float multiple = (float) width / (float) bm.getWidth();
                         bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
-                        Tool.insertPic(bm, path, Edit_Story.this, et_input);
+                        Tool.insertPic(bm, sa[i], Edit_Story.this, et_input);
                     }else{
                         System.out.println("File not exist");
                     }

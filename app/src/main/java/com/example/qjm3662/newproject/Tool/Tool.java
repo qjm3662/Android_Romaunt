@@ -15,6 +15,7 @@ import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -94,13 +95,14 @@ public class Tool {
 
     /**
      * 判断是否登陆
+     *
      * @param context
      * @return
      */
-    public static boolean JudgeIsLongin(Context context){
-        if(User.getInstance().getLoginToken() != null){
+    public static boolean JudgeIsLongin(Context context) {
+        if (User.getInstance().getLoginToken() != null) {
             return true;
-        }else{
+        } else {
             Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -129,16 +131,16 @@ public class Tool {
                 Gson gson = new Gson();
                 List<UserBase> list_user_base = new ArrayList<UserBase>();
                 UserBase userBase = null;
-                if(js_array_follower.length() != 0){
-                    if(!js_array_follower.get(0).toString().equals("false")){
-                        for(int i = 0; i < js_array_follower.length(); i++){
+                if (js_array_follower.length() != 0) {
+                    if (!js_array_follower.get(0).toString().equals("false")) {
+                        for (int i = 0; i < js_array_follower.length(); i++) {
                             System.out.println(js_array_follower.get(i).toString() + "dscsadc");
-                            userBase = gson.fromJson(js_array_follower.get(i).toString(),UserBase.class);
+                            userBase = gson.fromJson(js_array_follower.get(i).toString(), UserBase.class);
                             System.out.println("有人关注我 ： " + userBase.getId());
                             list_user_base.add(userBase);
                             App.Public_Care_Me.add(userBase);
                         }
-                        if(list_user_base.size() != 0){
+                        if (list_user_base.size() != 0) {
                             user.setFollower(list_user_base);
                         }
                     }
@@ -146,15 +148,15 @@ public class Tool {
 
                 list_user_base.clear();
 
-                if(js_array_following.length() != 0){
-                    if(!js_array_following.get(0).toString().equals("false")){
-                        for(int i = 0; i < js_array_following.length(); i++){
-                            userBase = gson.fromJson(js_array_following.get(i).toString(),UserBase.class);
+                if (js_array_following.length() != 0) {
+                    if (!js_array_following.get(0).toString().equals("false")) {
+                        for (int i = 0; i < js_array_following.length(); i++) {
+                            userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
                             System.out.println("我在关注TA ： " + userBase.getId());
                             list_user_base.add(userBase);
                             App.Public_Care_Other.add(userBase);
                         }
-                        if(list_user_base.size() != 0){
+                        if (list_user_base.size() != 0) {
                             user.setFollowing(list_user_base);
                         }
                     }
@@ -187,7 +189,7 @@ public class Tool {
      * @param content
      */
     public static void ShowDialog(final Context context, final String content, String title) {
-        final MyDialog myDialog = new MyDialog(context, R.style.myDialogTheme, content, "编辑用户名", "请输入用户名",0);
+        final MyDialog myDialog = new MyDialog(context, R.style.myDialogTheme, content, "编辑用户名", "请输入用户名", 0);
         myDialog.show();
         myDialog.setClickListener(new MyDialog.ClickListenerInterface() {
             @Override
@@ -217,6 +219,7 @@ public class Tool {
 
         // 根据Bitmap对象创建ImageSpan对象
         ImageSpan imageSpan = new ImageSpan(context, bitmap);
+        Log.e("Tool：Path", "p : " + path);
 
         // 创建一个SpannableString对象，以便插入用ImageSpan对象封装的图像
         //System.out.println(Tool.getPath(this,uri));
@@ -240,6 +243,7 @@ public class Tool {
         }
 
         String s = tv.getText().toString();
+        Log.e("Tool.in", s);
         System.out.println(s.length());
     }
 
