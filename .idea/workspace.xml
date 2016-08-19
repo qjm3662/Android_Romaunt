@@ -22,17 +22,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95bede4-bbb8-4134-8cae-6821ec3ffa45" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Android_Romaunt.time" afterPath="$PROJECT_DIR$/.idea/Android_Romaunt.time" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story/Edit_Story.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story/Edit_Story.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
     </list>
     <ignored path="Android_Romaunt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,8 +48,8 @@
       <file leaf-file-name="Edit_Story.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story/Edit_Story.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20318726">
-              <caret line="381" column="9" selection-start-line="381" selection-start-column="9" selection-end-line="381" selection-end-column="9" />
+            <state vertical-scroll-proportion="1.2788844">
+              <caret line="393" column="38" selection-start-line="393" selection-start-column="38" selection-end-line="393" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -66,8 +58,8 @@
       <file leaf-file-name="Tool.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.604651">
-              <caret line="217" column="29" selection-start-line="217" selection-start-column="29" selection-end-line="217" selection-end-column="29" />
+            <state vertical-scroll-proportion="-8.395349">
+              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1948,8 +1940,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/NetWorkOperator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/main/Myself.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/NWO_2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story/Edit_Story.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" />
       </list>
     </option>
   </component>
@@ -2419,7 +2411,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471348253759</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="解决本地图文混排保存错误问题">
+      <created>1471578529392</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1471578529392</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2471,7 +2469,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="编辑界面本地图文混排（屏幕有边界往作滑）" />
-    <option name="LAST_COMMIT_MESSAGE" value="编辑界面本地图文混排（屏幕有边界往作滑）" />
+    <MESSAGE value="解决本地图文混排保存错误问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决本地图文混排保存错误问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2904,6 +2903,14 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.395349">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Acticity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2912,18 +2919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.604651">
-          <caret line="217" column="29" selection-start-line="217" selection-start-column="29" selection-end-line="217" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story/Edit_Story.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20318726">
-          <caret line="381" column="9" selection-start-line="381" selection-start-column="9" selection-end-line="381" selection-end-column="9" />
+        <state vertical-scroll-proportion="1.2788844">
+          <caret line="393" column="38" selection-start-line="393" selection-start-column="38" selection-end-line="393" selection-end-column="38" />
           <folding />
         </state>
       </provider>

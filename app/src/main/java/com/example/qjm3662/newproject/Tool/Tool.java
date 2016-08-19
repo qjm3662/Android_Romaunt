@@ -219,7 +219,6 @@ public class Tool {
 
         // 根据Bitmap对象创建ImageSpan对象
         ImageSpan imageSpan = new ImageSpan(context, bitmap);
-        Log.e("Tool：Path", "p : " + path);
 
         // 创建一个SpannableString对象，以便插入用ImageSpan对象封装的图像
         //System.out.println(Tool.getPath(this,uri));
