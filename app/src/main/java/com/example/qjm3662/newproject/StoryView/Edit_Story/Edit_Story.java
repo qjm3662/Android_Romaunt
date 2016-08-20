@@ -37,7 +37,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TimeZone;
 
@@ -50,7 +49,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
     private EditText et_title;
     private EditText et_input;
     private TextView tv_flag;
-    private int a = 0, b = 0;
+    private int a = 0;
     //用来保存分段后的文章内容
     private String[] sa = null;
 
@@ -65,21 +64,13 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
     private int flag;
     public static String FLAG_WHERE_ARE_YOU_FROM = "where";
     public static int FLAG_FROM_ONLINE_ARTICLE = 1;
-
-    private String path;
-
     private Intent intent;
 
-    //储存图片路径
-    private static ArrayList<String> list;
-    //用来保存内容中<img>标签的index
-    private static ArrayList<Integer> index_int = new ArrayList<Integer>();
     //屏幕宽度
     private int width;
     private String content;
     private Editable edit_text;
     private int position;
-    public boolean judge = true;
     private Date date = null;
     private StoryBean story;
 
@@ -102,6 +93,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
         receiver = new ChangeModeBroadCastReceiver(this);
         registerReceiver(receiver, intentFilter);
         setContentView(R.layout.activity_edit__story);
+
         init();
         intent = getIntent();
         JUDGE = intent.getBooleanExtra("JUDGE", false);
@@ -133,13 +125,6 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
             img_is_public.setVisibility(View.INVISIBLE);
             tv_flag.setVisibility(View.INVISIBLE);
         }
-
-
-//        if (intent.getBooleanExtra(Story_pre.COMU_CODE_READ, false)) {
-//            display();
-//            save_story();
-//            judge = false;
-//        }
     }
 
 

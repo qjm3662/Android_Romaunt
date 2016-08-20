@@ -14,8 +14,6 @@ import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
-import com.example.qjm3662.newproject.StoryView.Edit_Acticity;
-import com.example.qjm3662.newproject.StoryView.Story_pre;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.mylhyl.crlayout.IFooterLayout;
 import com.mylhyl.crlayout.SwipeRefreshListView;

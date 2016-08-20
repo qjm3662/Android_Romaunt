@@ -253,26 +253,6 @@ public class NWO_2 {
     }
 
 
-    public static String UpLoadFile(final Context context, File file, String fileName) {
-        OkHttpUtils
-                .post()//
-                .url(Final_Static_data.UP_FILE)
-                .addFile("mFile", fileName, file)//
-                .build()//
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        System.out.println("UpLoadFile fail : " + e.toString());
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-
-                    }
-                });
-        System.out.println(file.exists());
-        return file.getPath();
-    }
 
 
     /**

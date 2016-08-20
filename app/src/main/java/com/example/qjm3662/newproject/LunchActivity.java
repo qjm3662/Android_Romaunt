@@ -3,7 +3,6 @@ package com.example.qjm3662.newproject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.TimePicker;
 
@@ -12,7 +11,6 @@ import com.example.qjm3662.newproject.Tool.Titanic;
 import com.example.qjm3662.newproject.Tool.TitanicTextView;
 
 import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.data.JPushView;
 
 public class LunchActivity extends Activity {
 
@@ -43,15 +41,6 @@ public class LunchActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (App.Switch_state_mode) {
-//            this.setTheme(R.style.AppTheme_night);
-//        } else {
-//            this.setTheme(R.style.AppTheme_day);
-//        }
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction("CHANGE_MODE");
-//        receiver = new ChangeModeBroadCastReceiver(this);
-//        registerReceiver(receiver, intentFilter);
         setContentView(R.layout.activity_lunch);
 
 

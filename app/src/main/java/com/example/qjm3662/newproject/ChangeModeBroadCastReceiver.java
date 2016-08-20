@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
+ * 日、夜间
  * Created by qjm3662 on 2016/7/20 0020.
  */
 public class ChangeModeBroadCastReceiver extends BroadcastReceiver {

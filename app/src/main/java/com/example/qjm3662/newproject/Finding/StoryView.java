@@ -1,18 +1,14 @@
 package com.example.qjm3662.newproject.Finding;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.method.ScrollingMovementMethod;
@@ -22,14 +18,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
-import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
@@ -45,9 +39,12 @@ import com.yalantis.contextmenu.lib.MenuObject;
 import com.yalantis.contextmenu.lib.MenuParams;
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener;
 
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StoryView extends FragmentActivity implements View.OnClickListener, OnMenuItemClickListener {
 
@@ -57,7 +54,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     private TextView tv_sign;
     private TextView tv_praise_num;
     private TextView tv_flag;
-    private TextView tv_content;
+    private EditText tv_content;
 
     private ViewGroup rl_transmit;
     private ViewGroup rl_praise;
@@ -93,6 +90,8 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
 
     private ChangeModeBroadCastReceiver receiver;
 
+    private float width;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +106,12 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         registerReceiver(receiver, intentFilter);
 
         setContentView(R.layout.activity_story_view);
+
+        //获取手机的高度和宽度
+        DisplayMetrics metric = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metric);
+        width = metric.widthPixels;     // 屏幕宽度（像素）
+
         //获取故事包含的信息
         intent = getIntent();
         flag = intent.getIntExtra("flag", -1);
@@ -213,11 +218,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     }
 
     private void Not_First_View(int where) {
-        if(where == 0){
+        if (where == 0) {
             userBase = App.Public_Story_User.get(position);
-        }else if(where == 1){
+        } else if (where == 1) {
             userBase = App.Public_Care_Other.get(position);
-        }else if(where == 2){
+        } else if (where == 2) {
             userBase = App.Public_Care_Me.get(position);
         }
         story = App.Public_HomePage_StoryList.get(position_child);
@@ -229,7 +234,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         tv_sign = (TextView) findViewById(R.id.user_info_item_sign);
         tv_praise_num = (TextView) findViewById(R.id.tv_praise);
         tv_flag = (TextView) findViewById(R.id.tv_flag);
-        tv_content = (TextView) findViewById(R.id.tv_content);
+        tv_content = (EditText) findViewById(R.id.tv_content);
 
         rl_transmit = (ViewGroup) findViewById(R.id.rl_transmit);
         rl_praise = (ViewGroup) findViewById(R.id.rl_praise);
@@ -276,9 +281,9 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             tv_favour.setTextColor(getResources().getColor(R.color.green));
         } else {
             img_praise.setImageResource(R.drawable.img_favour);
-            if(App.Switch_state_mode){
+            if (App.Switch_state_mode) {
                 tv_favour.setTextColor(getResources().getColor(R.color.gray_light));
-            }else{
+            } else {
                 tv_favour.setTextColor(getResources().getColor(R.color.dark_normal));
             }
         }
@@ -288,9 +293,9 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             tv_collect.setTextColor(getResources().getColor(R.color.green));
         } else {
             img_collect.setImageResource(R.drawable.img_collect);
-            if(App.Switch_state_mode){
+            if (App.Switch_state_mode) {
                 tv_collect.setTextColor(getResources().getColor(R.color.gray_light));
-            }else{
+            } else {
                 tv_collect.setTextColor(getResources().getColor(R.color.dark_normal));
             }
         }
@@ -309,10 +314,59 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         tv_sign.setText(userBase.getSign());
         tv_praise_num.setText(story.getLikeCount() + "");
         tv_flag.setText(story.getFlags());
-        tv_content.setText(story.getContent());
+//        tv_content.setText(story.getContent());
+        final String content = story.getContent();
+        final String[] sa = content.split("<img>");
+        final Map<String, Bitmap> bmMap = Collections.synchronizedMap(new HashMap<String, Bitmap>());
+        String temp = "";
+        for(int i = 0; i < sa.length; i++){
+            if(i % 2 == 0) {
+                temp += sa[i];
+            }
+        }
+        tv_content.setText(temp);
 
+
+        final Handler handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what){
+                    case 0:
+                        tv_content.setText("");
+                        Editable edit_text = tv_content.getEditableText();
+                        if (!content.equals("")) {
+                            System.out.println("Display== " + Arrays.toString(sa));
+                            for (int i = 0; i < sa.length; i++) {
+                                System.out.println(sa[i]);
+                                if (i % 2 == 0) {
+                                    edit_text.append(sa[i]);
+                                } else {
+                                    Bitmap bm = bmMap.get(i + "");
+                                    float multiple = width / (float) bm.getWidth();
+                                    bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                                    System.out.println("Begin insert!!!");
+                                    Tool.insertPic(bm, sa[i], StoryView.this, tv_content);
+                                    System.out.println("End insert!!!");
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+        };
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 0; i < sa.length; i++){
+                    if(i % 2 != 0){
+                        bmMap.put(i + "", NetWorkOperator.returnBitmap(sa[i]));
+                    }
+                }
+                handler.sendEmptyMessage(0);
+            }
+        }).start();
         tv_bar_center.setText(story.getTitle());
-
     }
 
 
@@ -378,9 +432,9 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         if (collect_state) {
             collect_state = false;
             img_collect.setImageResource(R.drawable.img_collect);
-            if(App.Switch_state_mode){
+            if (App.Switch_state_mode) {
                 tv_collect.setTextColor(getResources().getColor(R.color.gray_light));
-            }else{
+            } else {
                 tv_collect.setTextColor(getResources().getColor(R.color.dark_normal));
             }
         } else {
@@ -394,9 +448,9 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         if (praise_state) {
             praise_state = false;
             img_praise.setImageResource(R.drawable.img_favour);
-            if(App.Switch_state_mode){
+            if (App.Switch_state_mode) {
                 tv_favour.setTextColor(getResources().getColor(R.color.gray_light));
-            }else{
+            } else {
                 tv_favour.setTextColor(getResources().getColor(R.color.dark_normal));
             }
         } else {

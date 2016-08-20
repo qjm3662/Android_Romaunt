@@ -83,7 +83,7 @@
         android:textSize="16.67sp" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -93,6 +93,8 @@
         android:layout_marginRight="17dp"
         android:layout_marginTop="16dp"
         android:gravity="top"
+        android:editable="false"
+        android:background="@drawable/rectangle_input"
         android:isScrollContainer="true"
         android:text="从前有座山，山里有座庙，庙里有个老和尚和一个小和尚。老和尚再跟小和尚讲故事：从前有座山，山里有......"
         android:textColor="?attr/textColorLight" />

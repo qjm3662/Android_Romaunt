@@ -21,8 +21,6 @@ import com.example.qjm3662.newproject.StoryView.Slide.SlideAdapter;
 
 import java.sql.Date;
 
-import cn.jpush.android.api.JPushInterface;
-
 
 public class StoryFragment extends Fragment implements OnItemClickListener, View.OnClickListener, AdapterView.OnItemLongClickListener {
 	
@@ -108,7 +106,7 @@ public class StoryFragment extends Fragment implements OnItemClickListener, View
 			Toast.makeText(view.getContext(), "请先登录", Toast.LENGTH_SHORT).show();
 		}else {
 			System.out.println("开始上传");
-			NetWorkOperator.UpLoad_story(view.getContext(), story);
+			NetWorkOperator.UpLoad_story(view.getContext(), story, "fileName");
 		}
 		return true;
 	}

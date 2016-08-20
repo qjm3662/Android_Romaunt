@@ -1,6 +1,5 @@
 package com.example.qjm3662.newproject.Main_UI;
 
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -17,7 +16,6 @@ import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Finding.Finding_fragment;
 import com.example.qjm3662.newproject.Message.MessageFragment;
 import com.example.qjm3662.newproject.R;
-import com.example.qjm3662.newproject.StoryView.Edit_Acticity;
 import com.example.qjm3662.newproject.StoryView.StoryFragment;
 import com.example.qjm3662.newproject.myself.main.Myself;
 
@@ -222,19 +220,4 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         message.setOnClickListener(this);
         my.setOnClickListener(this);
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case Edit_Acticity.REQUEST_CODE_SAVE:
-                System.out.println("save fail");
-                if (storyFragment != null) {
-                    System.out.println("save success");
-                    storyFragment.slideAdapter.notifyDataSetChanged();
-                }
-                break;
-        }
-    }
-
 }

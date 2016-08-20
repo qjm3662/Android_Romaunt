@@ -1,7 +1,6 @@
 package com.example.qjm3662.newproject;
 
 import android.app.Application;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,22 +10,15 @@ import com.example.qjm3662.newproject.Data.CommentItem_add;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.StoryDB;
-import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.TimeZone;
-
-import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by qjm3662 on 2016/5/30 0030.
@@ -45,29 +37,29 @@ public class App extends Application {
 
 
     //广场故事列表
-    public static List<StoryBean> Public_StoryList = new ArrayList<StoryBean>();
+    public static List<StoryBean> Public_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
     //与广场故事配套的，储存作者相关信息
-    public static List<UserBase> Public_Story_User = new ArrayList<UserBase>();
+    public static List<UserBase> Public_Story_User = Collections.synchronizedList(new ArrayList<UserBase>());
 
     //关注我的人列表
-    public static List<UserBase> Public_Care_Me = new ArrayList<UserBase>();
+    public static List<UserBase> Public_Care_Me = Collections.synchronizedList(new ArrayList<UserBase>());
     //我关注的人列表
-    public static List<UserBase> Public_Care_Other = new ArrayList<UserBase>();
+    public static List<UserBase> Public_Care_Other = Collections.synchronizedList(new ArrayList<UserBase>());
 
     //收藏故事列表
-    public static List<StoryBean> Public_Collected_StoryList = new ArrayList<StoryBean>();
+    public static List<StoryBean> Public_Collected_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
 
     //个人主页的文章列表
-    public static List<StoryBean> Public_HomePage_StoryList = new ArrayList<StoryBean>();
+    public static List<StoryBean> Public_HomePage_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
 
     //我的文章列表
-    public static List<StoryBean> Public_My_Article_StoryList = new ArrayList<StoryBean>();
+    public static List<StoryBean> Public_My_Article_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
 
     //用于记录当前评论的是哪个文章
     public static StoryBean comment_story = new StoryBean();
 
     //评论列表
-    public static List<CommentItem_add> Public_Comment_List = new ArrayList<CommentItem_add>();
+    public static List<CommentItem_add> Public_Comment_List = Collections.synchronizedList(new ArrayList<CommentItem_add>());
 
 
     public static boolean Switch_state_mode = false;
@@ -79,13 +71,15 @@ public class App extends Application {
     public static boolean Switch_state_is_inform_collect = false;
 
 
+    public static float width;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
-        //极光推送初始化
-        JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
+//        //极光推送初始化
+//        JPushInterface.setDebugMode(true);
+//        JPushInterface.init(this);
 
         //获取数据库
         storyDB = new StoryDB(this);

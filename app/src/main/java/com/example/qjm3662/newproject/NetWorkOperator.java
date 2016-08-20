@@ -32,13 +32,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 
@@ -50,10 +54,11 @@ public class NetWorkOperator {
 
     /**
      * 收藏故事
+     *
      * @param context
      * @param storyId
      */
-    public static void CollectStory(final Context context, final String storyId){
+    public static void CollectStory(final Context context, final String storyId) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -61,19 +66,19 @@ public class NetWorkOperator {
                         .post()
                         .url(Final_Static_data.URL_COLLECT)
                         .addHeader("LoginToken", User.getInstance().getLoginToken())
-                        .addParams("storyID",storyId)
+                        .addParams("storyID", storyId)
                         .addParams("isCollect", "1")
                         .build()
                         .execute(new StringCallback() {
                             @Override
                             public void onError(Call call, Exception e) {
-                                System.out.println( " Collect error : " + e.toString());
+                                System.out.println(" Collect error : " + e.toString());
                             }
 
                             @Override
                             public void onResponse(String response) {
                                 System.out.println(response);
-                                getUserInfo(context, User.getInstance().getId()+"");
+                                getUserInfo(context, User.getInstance().getId() + "");
                             }
                         });
             }
@@ -82,6 +87,7 @@ public class NetWorkOperator {
 
     /**
      * 获得个人故事列表
+     *
      * @param id
      * @param flag  //flag = 1（表示是下滑刷新调用，需要刷新回执） flag = 2(表示adapter还未创建)
      * @param where //where = 0(别人主页的文章)，where = 1(自己主页的文章)
@@ -117,24 +123,24 @@ public class NetWorkOperator {
                                     //如果下拉刷新，则清除链表数据
                                     App.Public_HomePage_StoryList.clear();
                                     App.Public_My_Article_StoryList.clear();
-                                    for (int i = 0; i < jsonObject.length(); i++){
+                                    for (int i = 0; i < jsonObject.length(); i++) {
                                         //用Gson解析器，将返回的Json数据转为Story对象
                                         storyBean = gson.fromJson(jsonObject.get(i).toString(), StoryBean.class);
                                         System.out.println(storyBean.getContent());
-                                        if(where == 0){
+                                        if (where == 0) {
                                             App.Public_HomePage_StoryList.add(storyBean);
-                                        }else{
+                                        } else {
                                             App.Public_My_Article_StoryList.add(storyBean);
                                         }
                                     }
 
-                                    if(where == 0){
+                                    if (where == 0) {
                                         HomePage.adapter.notifyDataSetChanged();
-                                        if(flag == 1){
+                                        if (flag == 1) {
                                             HomePage.mPullToRefreshView.setRefreshing(false);
                                         }
-                                    }else{
-                                        if(flag != 2){
+                                    } else {
+                                        if (flag != 2) {
                                             ArticleActivity.adapter.notifyDataSetChanged();
                                             ArticleActivity.mPullToRefreshView.setRefreshing(false);
                                         }
@@ -195,7 +201,7 @@ public class NetWorkOperator {
     public static void UpDateUserInfo(final Context context) {
         final User user = User.getInstance();
         String sign = user.getSign();
-        if(sign.equals("")){
+        if (sign.equals("")) {
             sign = "默认签名";
         }
         final String finalSign = sign;
@@ -225,7 +231,7 @@ public class NetWorkOperator {
                             @Override
                             public void onResponse(String response) {
 
-                                Log.e("更新用户信息回执:",response);
+                                Log.e("更新用户信息回执:", response);
 
                                 try {
                                     JSONObject j = new JSONObject(response);
@@ -266,7 +272,7 @@ public class NetWorkOperator {
                                             List<UserBase> list_user_base = new ArrayList<UserBase>();
                                             UserBase userBase = null;
                                             App.Public_Care_Me.clear();
-                                            if(js_array_follower.length() != 0){
+                                            if (js_array_follower.length() != 0) {
                                                 if (!js_array_follower.get(0).toString().equals("false")) {
                                                     //同步关注我的人信息
                                                     for (int i = 0; i < js_array_follower.length(); i++) {
@@ -284,7 +290,7 @@ public class NetWorkOperator {
                                             list_user_base.clear();
                                             App.Public_Care_Other.clear();
                                             //同步我关注的人信息
-                                            if(js_array_following.length() != 0){
+                                            if (js_array_following.length() != 0) {
                                                 if (!js_array_following.get(0).toString().equals("false")) {
                                                     for (int i = 0; i < js_array_following.length(); i++) {
                                                         userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
@@ -306,7 +312,7 @@ public class NetWorkOperator {
                                             user.setCollectedStoriesCount(object.getInt("collectedStoriesCount"));
 
                                             //获取自己上传的文章
-                                            Get_Person_Story_List(context,String.valueOf(user.getId()), 2, 1);
+                                            Get_Person_Story_List(context, String.valueOf(user.getId()), 2, 1);
 
                                             Intent intent = new Intent();
                                             intent.setAction("GET_INFO");
@@ -373,8 +379,6 @@ public class NetWorkOperator {
                                             super.handleMessage(msg);
                                             switch (msg.what) {
                                                 case 1:
-//                                                    System.out.println("case1");
-//                                                    System.out.println(length_before);
                                                     for (int i = 0; i < jsonObject.length(); i++) {
                                                         StoryBean story = null;
                                                         System.out.println(App.Public_Story_User.size() + "  " + App.Public_StoryList.size());
@@ -385,7 +389,7 @@ public class NetWorkOperator {
                                                             story.setUser(App.Public_Story_User.get(i + length_before));
                                                             if (!App.Public_StoryList.contains(story)) {
                                                                 App.Public_StoryList.add(story);
-                                                                Log.e("Story",story.toString());
+                                                                Log.e("Story", story.toString());
                                                             }
                                                         } catch (JSONException e) {
                                                             e.printStackTrace();
@@ -505,52 +509,110 @@ public class NetWorkOperator {
      * @param context
      * @param story
      */
-    public static void UpLoad_story(final Context context, final Story story) {
-        if(Tool.JudgeIsLongin(context)){
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-//                System.out.println("Story : " + story.getTitle());
-//                System.out.println(User.getInstance().getLoginToken());
-                    OkHttpUtils
-                            .post()
-                            .url(Final_Static_data.URL_ADD_STORY)
-                            .addHeader("LoginToken", User.getInstance().getLoginToken())
-                            .addParams("title", story.getTitle())
-                            .addParams("flags", story.getFlags())
-                            .addParams("content", story.getContent())
-                            .addParams("publicEnable", story.getPublicEnable()+"")
-                            .build()
-                            .execute(new StringCallback() {
-                                @Override
-                                public void onError(Call call, Exception e) {
-                                    if (User.getInstance().getLoginToken() == null) {
-                                        Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(context, "上传失败", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
+    public static void UpLoad_story(final Context context, final Story story, final String fileName) {
+        if (Tool.JudgeIsLongin(context)) {
+            final String[] contents = story.getContent().split("<img>");
+            final Map<String, String> imgMap = Collections.synchronizedMap(new HashMap<String, String>());
+//            System.out.println(Arrays.toString(contents));
 
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonObject = new JSONObject(response);
-                                        if (jsonObject.getString("msg").equals("LoginToken")) {
-                                            getNew_Token(User.getInstance().getToken());
-                                            UpLoad_story(context, story);
-                                        } else {
-                                            Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+            final Handler handler = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    System.out.println("contents.length : " + contents.length);
+                    System.out.println(imgMap);
+                    if(imgMap.size() == contents.length/2){
+                        switch (msg.what) {
+                            case 0:
+                                String content = "";
+                                for(int i = 0; i < contents.length; i++){
+                                    if(i%2 != 0){
+                                        contents[i] = imgMap.get(i + "");
                                     }
+                                    content += contents[i];
                                 }
-                            });
+                                story.setContent(content);
+                                OkHttpUtils
+                                        .post()
+                                        .url(Final_Static_data.URL_ADD_STORY)
+                                        .addHeader("LoginToken", User.getInstance().getLoginToken())
+                                        .addParams("title", story.getTitle())
+                                        .addParams("flags", story.getFlags())
+                                        .addParams("content", story.getContent())
+                                        .addParams("publicEnable", story.getPublicEnable() + "")
+                                        .build()
+                                        .execute(new StringCallback() {
+                                            @Override
+                                            public void onError(Call call, Exception e) {
+                                                if (User.getInstance().getLoginToken() == null) {
+                                                    Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Toast.makeText(context, "上传失败", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onResponse(String response) {
+                                                try {
+                                                    JSONObject jsonObject = new JSONObject(response);
+                                                    if (jsonObject.getString("msg").equals("LoginToken")) {
+                                                        getNew_Token(User.getInstance().getToken());
+                                                        UpLoad_story(context, story, fileName);
+                                                    } else {
+                                                        Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        });
+                                break;
+                        }
+                    }else{
+                        System.out.println("图片还没上传完呢！！！");
+                    }
                 }
-            }).start();
+            };
+
+
+
+            for(int i = 0; i < contents.length; i++){
+                if(i % 2 != 0){//保存的是添加图片的路径
+                    System.out.println("i : " + contents[i]);
+                    File file1 = new File(contents[i]);
+                    final int finalI = i;
+                    upFile(fileName, finalI, file1, imgMap, handler);
+                }else{
+                    System.out.println("not img" + i);
+                }
+            }
         }else{
             Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler){
+        OkHttpUtils
+                .post()//
+                .url(Final_Static_data.UP_FILE)
+                .addFile(fileName, fileName + finalI, file)
+                .build()//
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        System.out.println("UpLoadFile fail : " + e.toString());
+                        upFile(fileName, finalI, file, imgMap, handler);
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println(response);
+                        System.out.println("i : " + finalI);
+                        imgMap.put(finalI + "", "<img>" + response + "<img>");
+                        handler.sendEmptyMessage(0);
+                    }
+                });
     }
 
 
@@ -617,7 +679,6 @@ public class NetWorkOperator {
             return null;
         }
         return bitmap;
-
     }
 
 
@@ -702,7 +763,6 @@ public class NetWorkOperator {
     }
 
 
-
     /**
      * 注册函数
      *
@@ -770,6 +830,7 @@ public class NetWorkOperator {
 
     /**
      * 根据url获取并设置头像
+     *
      * @param url
      * @param img_avatar
      */
@@ -814,7 +875,7 @@ public class NetWorkOperator {
     public static void getUserInfo(final Context context, final String id) {
         System.out.println("Begin getUserInfo!!!!!");
         System.out.println(User.getInstance().getLoginToken());
-        if(Tool.JudgeIsLongin(context)){
+        if (Tool.JudgeIsLongin(context)) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -840,7 +901,7 @@ public class NetWorkOperator {
                                         //如果登陆失效则重新获取Token,再次执行该函数
                                         if (jsonObject.getString("msg").equals("LoginToken")) {
                                             getNew_Token(User.getInstance().getToken());
-                                            getUserInfo(context,id);
+                                            getUserInfo(context, id);
                                         }
 
                                         JSONObject object = jsonObject.getJSONObject("msg");
@@ -868,7 +929,7 @@ public class NetWorkOperator {
                                         List<UserBase> list_user_base = new ArrayList<UserBase>();
                                         UserBase userBase = null;
                                         App.Public_Care_Me.clear();
-                                        if(js_array_follower.length() != 0){
+                                        if (js_array_follower.length() != 0) {
                                             if (!js_array_follower.get(0).toString().equals("false")) {
                                                 //同步关注我的人信息
                                                 for (int i = 0; i < js_array_follower.length(); i++) {
@@ -887,7 +948,7 @@ public class NetWorkOperator {
 
                                         App.Public_Care_Other.clear();
                                         //同步我关注的人信息
-                                        if(js_array_following.length() != 0){
+                                        if (js_array_following.length() != 0) {
                                             if (!js_array_following.get(0).toString().equals("false")) {
                                                 for (int i = 0; i < js_array_following.length(); i++) {
                                                     userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
@@ -907,7 +968,7 @@ public class NetWorkOperator {
                                         user.setCollectedStoriesCount(object.getInt("collectedStoriesCount"));
 
                                         //获取自己上传的文章
-                                        Get_Person_Story_List(context,String.valueOf(user.getId()), 2, 1);
+                                        Get_Person_Story_List(context, String.valueOf(user.getId()), 2, 1);
 
                                         Intent intent = new Intent();
                                         intent.setAction("GET_INFO");
@@ -921,7 +982,7 @@ public class NetWorkOperator {
                             });
                 }
             }).start();
-        }else {
+        } else {
             Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
         }
 
