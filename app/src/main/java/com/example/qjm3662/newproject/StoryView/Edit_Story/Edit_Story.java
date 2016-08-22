@@ -16,6 +16,7 @@ import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
 import android.text.style.ImageSpan;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
+import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.StoryDB;
@@ -273,10 +275,11 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
             //获取文件的绝对路径
             try {
                 Bitmap bm = BitmapFactory.decodeStream(resolver.openInputStream(originalUri));
+                Bitmap_file_dir bfd = null;
                 if (bm != null) {
                     float multiple = (float) width / (float) bm.getWidth();
-                    bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
-                    insertPic(bm, originalUri);
+                    bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                    insertPic(bfd, originalUri);
                 } else {
                     Toast.makeText(Edit_Story.this, "获取图片失败",
                             Toast.LENGTH_SHORT).show();
@@ -291,19 +294,20 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
 
     /**
      * 根据URI插入图片
-     *
-     * @param bitmap
+     * @param bfd
      * @param uri
      */
 
-    private void insertPic(Bitmap bitmap, Uri uri) {
+    private void insertPic(Bitmap_file_dir bfd, Uri uri) {
 
         // 根据Bitmap对象创建ImageSpan对象
-        ImageSpan imageSpan = new ImageSpan(Edit_Story.this, bitmap);
+        ImageSpan imageSpan = new ImageSpan(Edit_Story.this, bfd.getBitmap());
 
         // 创建一个SpannableString对象，以便插入用ImageSpan对象封装的图像
         //System.out.println(Tool.getPath(this,uri));
-        String path = Tool.getPath(this, uri);
+//        String path = Tool.getPath(this, uri);
+        String path = bfd.getTargetDir();
+        Log.e("PATH", path);
         //<img alt="" src="1.jpg"></img>
         path = "<img>" + path + "<img>";
 
@@ -406,9 +410,10 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                     File file = new File(sa[i]);
                     if(file.exists()) {
                         Bitmap bm = BitmapFactory.decodeFile(sa[i]);
+                        Bitmap_file_dir bfd = null;
                         float multiple = (float) width / (float) bm.getWidth();
-                        bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
-                        Tool.insertPic(bm, sa[i], Edit_Story.this, et_input);
+                        bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                        Tool.insertPic(bfd, sa[i], Edit_Story.this, et_input);
                     }else{
                         System.out.println("File not exist");
                     }

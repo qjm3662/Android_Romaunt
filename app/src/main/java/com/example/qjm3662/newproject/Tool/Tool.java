@@ -5,6 +5,7 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.qjm3662.newproject.App;
+import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.NetWorkOperator;
@@ -31,6 +33,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -209,16 +216,15 @@ public class Tool {
 
     /**
      * 插入图片（图文混排）
-     *
-     * @param bitmap
+     * @param bfd
      * @param path
      * @param context
      * @param tv
      */
-    public static void insertPic(Bitmap bitmap, String path, Context context, EditText tv) {
+    public static void insertPic(Bitmap_file_dir bfd, String path, Context context, EditText tv) {
 
         // 根据Bitmap对象创建ImageSpan对象
-        ImageSpan imageSpan = new ImageSpan(context, bitmap);
+        ImageSpan imageSpan = new ImageSpan(context, bfd.getBitmap());
 
         // 创建一个SpannableString对象，以便插入用ImageSpan对象封装的图像
         //System.out.println(Tool.getPath(this,uri));
@@ -255,8 +261,8 @@ public class Tool {
      * @param y
      * @return
      */
-    public static Bitmap resize_bitmap(Bitmap b, float x, float y) {
-        //b = compressImage(b);
+    public static Bitmap_file_dir resize_bitmap(Bitmap b, float x, float y) {
+        //大小压缩
         int w = b.getWidth();
         int h = b.getHeight();
         float sx = (float) x / w;//要强制转换，不转换我的在这总是死掉。
@@ -265,10 +271,24 @@ public class Tool {
         matrix.postScale(sx, sy); // 长和宽放大缩小的比例
         Bitmap resizeBmp = Bitmap.createBitmap(b, 0, 0, w,
                 h, matrix, true);
-        return resizeBmp;
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int options = 100;
+        resizeBmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        while (baos.toByteArray().length / 1024 > 100) {
+            baos.reset();
+            options -= 5;
+            System.out.println("options : " + options);
+            resizeBmp.compress(Bitmap.CompressFormat.JPEG, options, baos);
+        }
+
+        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
+        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);
+        String path = saveByteArrayAsFile(baos.toByteArray());
+        System.out.println("ByteArrayTo : " + path);
+        Bitmap_file_dir bfd = new Bitmap_file_dir(bitmap, path);
+        return bfd;
     }
-
-
 //    public static Bitmap compressImage(Bitmap image) {
 //        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
@@ -277,47 +297,111 @@ public class Tool {
 //            baos.reset();//重置baos即清空baos
 //            options -= 10;//每次都减少10
 //            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中
-//
 //        }
 //        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
 //        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
 //        return bitmap;
 //    }
+
+
+//    public static void compressPicture(String srcPath, String desPath) {
+//        FileOutputStream fos = null;
+//        BitmapFactory.Options op = new BitmapFactory.Options();
+//        // 开始读入图片，此时把options.inJustDecodeBounds 设成true
+//        //只会读取图片的宽高，而不会生成bitmap
+//        op.inJustDecodeBounds = true;
+//        Bitmap bitmap = BitmapFactory.decodeFile(srcPath, op);
+//        op.inJustDecodeBounds = false;
 //
-//
-//
-//
-//    /***
-//     * 图片的缩放方法
-//     *
-//     * @param bitmap
-//     *            ：源图片资源
-//     * @param newWidth
-//     *            ：缩放后宽度
-//     * @param newHeight
-//     *            ：缩放后高度
-//     * @return
-//     */
-//    public static Bitmap zoomImage(Bitmap bitmap, double newWidth,
-//                                   double newHeight) {
-//
-//        bitmap = compressImage(bitmap);
-//        System.out.println("new" + newHeight + "  " + newWidth);
-//        // 获取这个图片的宽和高
-//        float width = bitmap.getWidth();
-//        float height = bitmap.getHeight();
-//        // 创建操作图片用的matrix对象
-//        Matrix matrix = new Matrix();
-//        // 计算宽高缩放率
-//        float scaleWidth = ((float) newWidth) / width;
-//        float scaleHeight = ((float) newHeight) / height;
-//        // 缩放图片动作
-//        matrix.postScale(scaleWidth, scaleHeight);
-//        Bitmap bitmap1 = Bitmap.createBitmap(bitmap, 0, 0, (int) width,
-//                (int) height, matrix, true);
-//        return bitmap1;
+//        // 缩放图片的尺寸
+//        float w = op.outWidth;
+//        float h = op.outHeight;
+////        float ww = App.width - 80;
+//        float hh = 1024f;//
+//        float ww = 1024f;//
+//        // 最长宽度或高度1024
+//        float be = 1.0f;
+//        if (w > h && w > ww) {
+//            be = (float) (w / ww);
+//        } else if (w < h && h > hh) {
+//            be = (float) (h / hh);
+//        }
+//        if (be <= 0) {
+//            be = 1.0f;
+//        }
+//        op.inSampleSize = (int) be;// 设置缩放比例,这个数字越大,图片大小越小.
+//        // 重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
+//        bitmap = BitmapFactory.decodeFile(srcPath, op);
+//        int desWidth = (int) (w / be);
+//        int desHeight = (int) (h / be);
+//        bitmap = Bitmap.createScaledBitmap(bitmap, desWidth, desHeight, true);
+//        try {
+//            fos = new FileOutputStream(desPath);
+//            if (bitmap != null) {
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+//            }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
 //    }
 
+
+//    /**
+//     * Bitmap存为文件，并返回保存路径
+//     * @param bitmap   The Bitmap you want to save
+//     * @return
+//     */
+//    public static String saveBitmapAsFile(Bitmap bitmap){
+//        String path = App.pro_cache_dir + System.currentTimeMillis() + ".png";
+//        File file = new File(path);
+//        if(!file.exists()){
+//            try {
+//                file.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        FileOutputStream fileOutputStream = null;
+//        try {
+//            fileOutputStream = new FileOutputStream(file);
+//            System.out.println("OPTIONS : " + option);
+//            bitmap.compress(Bitmap.CompressFormat.PNG, option, fileOutputStream);
+//            fileOutputStream.flush();
+//            fileOutputStream.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        Log.e("BitmapToFile : ", file.length() + "");
+//        return path;
+//    }
+
+    /**
+     * byte数组存为文件，并返回路径
+     * @param bytes 输出流.toByteArray()
+     * @return 保存文件的路径
+     */
+    public static String saveByteArrayAsFile(byte[] bytes){
+        String path = App.pro_cache_dir + "Byte" + System.currentTimeMillis() + ".png";
+        File file = new File(path);
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(bytes);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.e("ByteToFile : ", file.length() + "");
+        return path;
+    }
 
     /**
      * 通过选择图片返回的字符串获取到图片所在的本地路径

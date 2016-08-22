@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
+import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
@@ -147,7 +148,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         Bitmap bitmap = null;
         MenuObject transmit = new MenuObject("转发");
         bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.img_transmit);
-        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30));
+        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30)).getBitmap();
         transmit.setBitmap(bitmap);
         transmit.setBgResource(R.drawable.white);
         transmit.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -155,7 +156,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
 
         MenuObject praise = new MenuObject("赞");
         bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.img_favour_choose);
-        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30));
+        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30)).getBitmap();
         praise.setBitmap(bitmap);
         praise.setBgResource(R.drawable.white);
         praise.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -163,7 +164,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
 
         MenuObject collect = new MenuObject("收藏");
         bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.img_collect_choose);
-        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30));
+        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30)).getBitmap();
         collect.setBitmap(bitmap);
         collect.setBgResource(R.drawable.white);
         collect.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -171,7 +172,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
 
         MenuObject comment = new MenuObject("评论");
         bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.img_comment);
-        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30));
+        bitmap = Tool.resize_bitmap(bitmap, DestinyUtil.dip2px(this, 30), DestinyUtil.dip2px(this, 30)).getBitmap();
         comment.setBitmap(bitmap);
         comment.setBgResource(R.drawable.white);
         comment.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -343,10 +344,11 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                                     edit_text.append(sa[i]);
                                 } else {
                                     Bitmap bm = bmMap.get(i + "");
+                                    Bitmap_file_dir bfd = null;
                                     float multiple = width / (float) bm.getWidth();
-                                    bm = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                                    bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
                                     System.out.println("Begin insert!!!");
-                                    Tool.insertPic(bm, sa[i], StoryView.this, tv_content);
+                                    Tool.insertPic(bfd, sa[i], StoryView.this, tv_content);
                                     System.out.println("End insert!!!");
                                 }
                             }

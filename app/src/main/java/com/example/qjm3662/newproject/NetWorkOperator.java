@@ -531,14 +531,14 @@ public class NetWorkOperator {
                                     }
                                     content += contents[i];
                                 }
-                                story.setContent(content);
+//                                story.setContent(content);
                                 OkHttpUtils
                                         .post()
                                         .url(Final_Static_data.URL_ADD_STORY)
                                         .addHeader("LoginToken", User.getInstance().getLoginToken())
                                         .addParams("title", story.getTitle())
                                         .addParams("flags", story.getFlags())
-                                        .addParams("content", story.getContent())
+                                        .addParams("content", content)
                                         .addParams("publicEnable", story.getPublicEnable() + "")
                                         .build()
                                         .execute(new StringCallback() {
@@ -573,9 +573,9 @@ public class NetWorkOperator {
                     }
                 }
             };
-
-
-
+            if (contents.length == 1){//纯文字故事上传
+                handler.sendEmptyMessage(0);
+            }
             for(int i = 0; i < contents.length; i++){
                 if(i % 2 != 0){//保存的是添加图片的路径
                     System.out.println("i : " + contents[i]);

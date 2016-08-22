@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.TimePicker;
 
 import com.example.qjm3662.newproject.Main_UI.MainActivity;
@@ -55,5 +56,10 @@ public class LunchActivity extends Activity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         }, 3000);
+
+        System.out.println("this.getExternalCacheDir()" + this.getExternalCacheDir());
+        System.out.println(this.getCacheDir());
+        System.out.println(this.getFilesDir());
+        System.out.println(Environment.getExternalStorageDirectory());
     }
 }

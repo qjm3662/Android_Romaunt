@@ -72,6 +72,7 @@ public class App extends Application {
 
 
     public static float width;
+    public static String pro_cache_dir;
 
     @Override
     public void onCreate() {
@@ -93,6 +94,8 @@ public class App extends Application {
 
         getStory_from_SQLite();
         getSwitchInfo(this);
+
+        pro_cache_dir = String.valueOf(this.getExternalCacheDir());
     }
 
 
