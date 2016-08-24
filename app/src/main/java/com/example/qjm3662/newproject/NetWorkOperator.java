@@ -513,7 +513,6 @@ public class NetWorkOperator {
         if (Tool.JudgeIsLongin(context)) {
             final String[] contents = story.getContent().split("<img>");
             final Map<String, String> imgMap = Collections.synchronizedMap(new HashMap<String, String>());
-//            System.out.println(Arrays.toString(contents));
 
             final Handler handler = new Handler() {
                 @Override
@@ -592,6 +591,14 @@ public class NetWorkOperator {
 
     }
 
+    /**
+     * 上传文件到服务器（图片）
+     * @param fileName
+     * @param finalI
+     * @param file
+     * @param imgMap
+     * @param handler
+     */
     public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler){
         OkHttpUtils
                 .post()//

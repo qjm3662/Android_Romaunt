@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 
 import com.example.qjm3662.newproject.Data.CommentItem_add;
 import com.example.qjm3662.newproject.Data.Story;
@@ -17,7 +18,9 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 /**
@@ -61,6 +64,9 @@ public class App extends Application {
     //评论列表
     public static List<CommentItem_add> Public_Comment_List = Collections.synchronizedList(new ArrayList<CommentItem_add>());
 
+    //暂时缓存以阅读文章的图片资源，App退出后自动删除
+    public static Map<String, Bitmap> Public_Picture_Cache = Collections.synchronizedMap(new HashMap<String, Bitmap>());
+
 
     public static boolean Switch_state_mode = false;
     public static boolean Switch_state_wifi_sync = false;
@@ -100,8 +106,12 @@ public class App extends Application {
 
 
     public static void openDB() {
-        dbRead.close();
-        dbWrite.close();
+        if(dbWrite.isOpen()){
+            dbWrite.close();
+        }
+        if(dbRead.isOpen()){
+            dbRead.close();
+        }
         dbRead = storyDB.getReadableDatabase();
         dbWrite = storyDB.getWritableDatabase();
     }
@@ -140,8 +150,6 @@ public class App extends Application {
         editor.putBoolean("Switch_state_is_inform_comment", Switch_state_is_inform_comment);
         editor.putBoolean("Switch_state_is_inform_collect", Switch_state_is_inform_collect);
         editor.apply();
-
-
     }
 
 

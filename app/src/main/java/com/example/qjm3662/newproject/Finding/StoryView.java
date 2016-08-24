@@ -79,8 +79,6 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     private TextView tv_bar_right;
     private int flag;
 
-    private boolean STATE_COLLECT;
-    private boolean STATE_PRAISE;
     private ContextMenuDialogFragment mMenuDialogFragment;
     private android.support.v4.app.FragmentManager fragmentManager;
     private StoryOperatorReceiver storyOperatorReceiver;
@@ -320,13 +318,13 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         final String[] sa = content.split("<img>");
         final Map<String, Bitmap> bmMap = Collections.synchronizedMap(new HashMap<String, Bitmap>());
         String temp = "";
+        //先将图片以外的文字显示出来
         for(int i = 0; i < sa.length; i++){
             if(i % 2 == 0) {
                 temp += sa[i];
             }
         }
         tv_content.setText(temp);
-
 
         final Handler handler = new Handler(){
             @Override
@@ -344,9 +342,8 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                                     edit_text.append(sa[i]);
                                 } else {
                                     Bitmap bm = bmMap.get(i + "");
-                                    Bitmap_file_dir bfd = null;
                                     float multiple = width / (float) bm.getWidth();
-                                    bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                                    Bitmap_file_dir bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
                                     System.out.println("Begin insert!!!");
                                     Tool.insertPic(bfd, sa[i], StoryView.this, tv_content);
                                     System.out.println("End insert!!!");
@@ -358,12 +355,24 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             }
         };
         new Thread(new Runnable() {
+
             @Override
             public void run() {
+                Bitmap bitmap = null;
                 for(int i = 0; i < sa.length; i++){
                     if(i % 2 != 0){
-                        bmMap.put(i + "", NetWorkOperator.returnBitmap(sa[i]));
+                        bitmap = App.Public_Picture_Cache.get(sa[i]);
+                        if(bitmap == null){
+                            bitmap = NetWorkOperator.returnBitmap(sa[i]);
+                            bmMap.put(i + "", bitmap);
+                            App.Public_Picture_Cache.put(sa[i], bitmap);
+                            System.out.println("Woc, 又给我下图片");
+                        }else {
+                            bmMap.put(i + "", bitmap);
+                            System.out.println("这图我看过23333");
+                        }
                     }
+                    bitmap = null;
                 }
                 handler.sendEmptyMessage(0);
             }

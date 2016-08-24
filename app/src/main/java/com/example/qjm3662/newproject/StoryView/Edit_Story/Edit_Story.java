@@ -172,6 +172,12 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.img_x:
+                sa = et_input.getText().toString().split("<img>");
+                for(int i = 0; i < sa.length; i++){
+                    if(i % 2 != 0){
+                        Tool.deleteFile(sa[i]);
+                    }
+                }
                 finish();
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;

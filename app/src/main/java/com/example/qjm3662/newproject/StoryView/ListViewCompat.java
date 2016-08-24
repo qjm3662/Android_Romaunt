@@ -15,7 +15,7 @@ public class ListViewCompat extends ListView {
 	
 	private static final String TAG = "ListViewCompat";
 	
-	private SlideView mFocusedItenView;
+	private SlideView mFocusedIntentView;
 
 	public ListViewCompat(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -51,16 +51,16 @@ public class ListViewCompat extends ListView {
 			Log.e(TAG,"position" + position);
 			if (position != INVALID_POSITION) {
 				Story item = (Story) getItemAtPosition(position);
-				mFocusedItenView = item.slideView;
-				Log.e(TAG,"mFocusedItenView=" + mFocusedItenView);
+				mFocusedIntentView = item.slideView;
+				Log.e(TAG,"mFocusedIntentView=" + mFocusedIntentView);
 			}
 		}
 		default:
 			break;
 		}
 		
-		if(mFocusedItenView != null) {
-			mFocusedItenView.onRequireTouchEvent(event);
+		if(mFocusedIntentView != null) {
+			mFocusedIntentView.onRequireTouchEvent(event);
 		}
 		
 		return super.onTouchEvent(event);
