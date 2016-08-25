@@ -32,7 +32,7 @@ import com.example.qjm3662.newproject.Finding.Comment.CommentActivity;
 import com.example.qjm3662.newproject.NWO_2;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
-import com.example.qjm3662.newproject.StoryView.Edit_Story.Edit_Story;
+import com.example.qjm3662.newproject.StoryView.Edit_Story;
 import com.example.qjm3662.newproject.Tool.DestinyUtil;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;

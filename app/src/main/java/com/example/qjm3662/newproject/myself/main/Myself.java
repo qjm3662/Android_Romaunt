@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -101,7 +100,7 @@ public class Myself extends Fragment implements View.OnClickListener {
         ll_my_article_num = (ViewGroup) view.findViewById(R.id.ll_my_article_num);
 
 
-        if (Tool.JudgeIsLongin(getContext())) {
+        if (Tool.JudgeIsLogin(getContext())) {
             tv_name.setText(User.getInstance().getUserName());
             if (!User.getInstance().getSign().equals("")) {
                 tv_sign.setText(User.getInstance().getSign());
@@ -282,20 +281,20 @@ public class Myself extends Fragment implements View.OnClickListener {
                 ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.my_name:
-                if (Tool.JudgeIsLongin(context)) {
+                if (Tool.JudgeIsLogin(context)) {
                     Tool.ShowDialog(getContext(), User.getInstance().getUserName(), "编辑用户名");
                     ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
                 break;
             case R.id.my_sign:
-                if (Tool.JudgeIsLongin(context)) {
+                if (Tool.JudgeIsLogin(context)) {
                     Intent intent1 = new Intent(getContext(), Edit_sign.class);
                     startActivity(intent1);
                     ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
                 break;
             case R.id.img_sex:
-                if (Tool.JudgeIsLongin(context)) {
+                if (Tool.JudgeIsLogin(context)) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     //    指定下拉列表的显示数据
                     final String[] cities = {"男", "女"};

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -89,7 +88,7 @@ public class Finding_fragment extends SwipeRefreshListFragment {
      */
     @Override
     public void onRefresh() {
-        if(Tool.JudgeIsLongin(getContext())){
+        if(Tool.JudgeIsLogin(getContext())){
             handler.sendEmptyMessageDelayed(REFREASH, 0);
         }else{
             swipeRefreshListView.setRefreshing(false);

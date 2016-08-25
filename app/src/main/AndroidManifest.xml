@@ -51,8 +51,6 @@
         <activity android:name=".LoginAndRegister.LoginActivity" />
         <activity android:name=".LoginAndRegister.Register_UI" />
         <activity android:name=".Main_UI.MainActivity" />
-        <activity android:name=".StoryView.Edit_Acticity" />
-        <activity android:name=".StoryView.Story_pre" />
         <activity android:name=".myself.Edit_sign" />
         <activity android:name=".myself.FeedBack" />
         <activity android:name=".myself.Care.care" />
@@ -60,7 +58,7 @@
         <activity android:name=".myself.settings.Public_settings" />
         <activity android:name=".myself.settings.Notification" />
         <activity android:name=".myself.collection.collection" />
-        <activity android:name=".StoryView.Edit_Story.Edit_Story" />
+        <activity android:name=".StoryView.Edit_Story" />
         <activity android:name=".Finding.StoryView" />
         <activity android:name=".Finding.HomePage" />
         <activity android:name=".LunchActivity">
@@ -70,7 +68,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".myself.Article.ArticleActivity"></activity>
+        <activity android:name=".myself.Article.ArticleActivity" />
 
         <!-- Required SDK 核心功能 -->
         <!-- option since 2.0.5 可配置PushService，DaemonService,PushReceiver,AlarmReceiver的android:process参数 将JPush相关组件设置为一个独立进程 -->
@@ -137,7 +135,7 @@
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
         <!-- Required SDK核心功能 -->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
 
@@ -177,7 +175,7 @@
             android:name="JPUSH_APPKEY"
             android:value="8f63446591ab6db945d90149" />
 
-        <activity android:name=".Finding.Comment.CommentActivity"></activity>
+        <activity android:name=".Finding.Comment.CommentActivity" />
     </application>
 
 </manifest>

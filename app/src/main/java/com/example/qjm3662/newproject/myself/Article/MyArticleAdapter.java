@@ -33,6 +33,7 @@ public class MyArticleAdapter extends BaseAdapter {
         private TextView hps_time;
         private TextView hps_introduce;
         private TextView hps_like_count;
+
     }
 
     @Override

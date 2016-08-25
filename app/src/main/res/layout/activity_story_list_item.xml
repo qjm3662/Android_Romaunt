@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sample"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+
+    >
+    <!-- Bottom View Start-->
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:background="#66ddff00"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:id="@+id/holder_slide"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:clickable="true">
+
+            <TextView
+                android:id="@+id/delete_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/delete"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- Bottom View End-->
+
+    <!-- Surface View Start -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/story_info_item">
+            <!--What you want to show in SurfaceView-->
+            <TextView
+                android:id="@+id/story_list_item_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/rectangle_tip"
+                android:gravity="center"
+                android:text="标签"
+                android:textColor="@color/green"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/story_list_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/story_list_item_flag"
+                android:text="有一个很长的故事叫山里的故事"
+                android:textColor="?attr/textColorDeep"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/story_list_item_public_able"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_privacy" />
+
+
+            <TextView
+                android:id="@+id/story_list_item_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/story_list_item_title"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="7dp"
+                android:lines="2"
+                android:text="从前有座山，山里有座庙，庙里有个老和尚和一个小和尚。老和尚再跟小和尚讲故事：从前有座山，山里有......"
+                android:textColor="?attr/textColorLight"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/story_list_item_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/story_list_item_introduce"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="15dp"
+                android:text="14:14:11"
+                android:textColor="?attr/textColorLight"
+                android:textSize="10sp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- Surface View End -->
+</com.daimajia.swipe.SwipeLayout>

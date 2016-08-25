@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/editView"
     android:orientation="vertical"
-    tools:context="com.example.qjm3662.newproject.StoryView.Edit_Story.Edit_Story">
+    tools:context=".StoryView.Edit_Story">
 
     <RelativeLayout
         android:layout_width="match_parent"

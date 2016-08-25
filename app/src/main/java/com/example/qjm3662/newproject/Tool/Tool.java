@@ -66,7 +66,7 @@ public class Tool {
      * @param context
      * @return
      */
-    public static boolean JudgeIsLongin(Context context) {
+    public static boolean JudgeIsLogin(Context context) {
         if (User.getInstance().getLoginToken() != null) {
             return true;
         } else {

@@ -510,7 +510,7 @@ public class NetWorkOperator {
      * @param story
      */
     public static void UpLoad_story(final Context context, final Story story, final String fileName) {
-        if (Tool.JudgeIsLongin(context)) {
+        if (Tool.JudgeIsLogin(context)) {
             final String[] contents = story.getContent().split("<img>");
             final Map<String, String> imgMap = Collections.synchronizedMap(new HashMap<String, String>());
 
@@ -882,7 +882,7 @@ public class NetWorkOperator {
     public static void getUserInfo(final Context context, final String id) {
         System.out.println("Begin getUserInfo!!!!!");
         System.out.println(User.getInstance().getLoginToken());
-        if (Tool.JudgeIsLongin(context)) {
+        if (Tool.JudgeIsLogin(context)) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
