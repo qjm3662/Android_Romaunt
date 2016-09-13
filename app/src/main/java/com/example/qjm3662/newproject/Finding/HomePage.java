@@ -181,20 +181,23 @@ public class HomePage extends ListActivity implements View.OnClickListener {
 
     // 退出事件
     @Override public void onBackPressed() {
-        GuiUtils.animateRevealHide(
-                this, mRlContainer,
-                img_head.getWidth() / 2, R.color.green,
-                new GuiUtils.OnRevealAnimationListener() {
-                    @Override
-                    public void onRevealHide() {
-                        defaultBackPressed();
-                    }
+//        GuiUtils.animateRevealHide(
+//                this, mRlContainer,
+//                img_head.getWidth() / 2, R.color.green,
+//                new GuiUtils.OnRevealAnimationListener() {
+//                    @Override
+//                    public void onRevealHide() {
+//                        defaultBackPressed();
+//                    }
+//
+//                    @Override
+//                    public void onRevealShow() {
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onRevealShow() {
 
-                    }
-                });
+        defaultBackPressed();
     }
 
     private void fillInformation() {
@@ -208,8 +211,11 @@ public class HomePage extends ListActivity implements View.OnClickListener {
 //            mIvClose.setVisibility(View.VISIBLE);
 //        });
         //加载头像
-        final String url = userBase.getAvatar();
-        NetWorkOperator.Set_Avatar(url, img_head);
+//        final String url = userBase.getAvatar();
+//        NetWorkOperator.Set_Avatar(url, img_head);
+        if(userBase.getBitmap() != null){
+            img_head.setImageBitmap(userBase.getBitmap());
+        }
 
         tv_nickname.setText(userBase.getUserName());
         tv_sign.setText(userBase.getSign());
@@ -220,8 +226,8 @@ public class HomePage extends ListActivity implements View.OnClickListener {
             img_sex.setImageResource(R.drawable.img_female_mine);
         }
 
-        hps_fan_num.setText(userBase.getFollower().size() + "");
-        hps_concern_num.setText(userBase.getFollowing().size() + "");
+//        hps_fan_num.setText(userBase.getFollower().size() + "");
+//        hps_concern_num.setText(userBase.getFollowing().size() + "");
         hps_article_num.setText(App.Public_HomePage_StoryList.size() + "");
     }
 

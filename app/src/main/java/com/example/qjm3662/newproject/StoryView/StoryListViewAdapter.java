@@ -13,6 +13,7 @@ import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryDB;
 import com.example.qjm3662.newproject.R;
+import com.example.qjm3662.newproject.Tool.EasySweetAlertDialog;
 import com.example.qjm3662.newproject.Tool.Tool;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -128,38 +129,36 @@ public class StoryListViewAdapter extends BaseSwipeAdapter {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                ((SwipeLayout)vv).close();
-                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Won't be able to recover this file!")
-                        .setConfirmText("Yes,delete it!")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sDialog) {
-                                sDialog.dismissWithAnimation();
-                                //Log.e(TAG,"position"+position);
-                                System.out.println("Begin delete!!!!");
-                                Story story = App.StoryList.get(position);
-                                String[] contents = story.getContent().split("<img>");
-                                //删除本地故事时删除其缓存的图片
-                                for(int i = 0; i < contents.length; i++){
-                                    if(i % 2 != 0){
-                                        Tool.deleteFile(contents[i]);
-                                    }
-                                }
-//                                System.out.println("Localid : " + String.valueOf(story.getLocal_id()));
-                                if(0 == App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())})){
-                                    App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())});
-                                }
-                                App.StoryList.remove(position);
-                                notifyDataSetChanged();
-                                System.out.println("End delete!!");
+                EasySweetAlertDialog.SuccessCallBack callBack = new EasySweetAlertDialog.SuccessCallBack() {
+                    @Override
+                    public void Success() {
+                        ((SwipeLayout) vv).close();
+//                        sDialog.dismissWithAnimation();
+                        //Log.e(TAG,"position"+position);
+                        System.out.println("Begin delete!!!!");
+                        Story story = App.StoryList.get(position);
+                        String[] contents = story.getContent().split("<img>");
+                        //删除本地故事时删除其缓存的图片
+                        for (int i = 0; i < contents.length; i++) {
+                            if (i % 2 != 0) {
+                                Tool.deleteFile(contents[i]);
                             }
-                        })
-                        .show();
+                        }
+//                                System.out.println("Localid : " + String.valueOf(story.getLocal_id()));
+                        if (0 == App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())})) {
+                            App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())});
+                        }
+                        App.StoryList.remove(position);
+                        notifyDataSetChanged();
+                        System.out.println("End delete!!");
+                    }
+                };
+                EasySweetAlertDialog.ShowTip(context, "Are you sure?", "Won't be able to recover this story!", "Yes,delete it!", callBack);
 
             }
         });
+
+
 
         Story item = App.StoryList.get(position);
         viewHolder.tv_title.setText(item.getTitle());

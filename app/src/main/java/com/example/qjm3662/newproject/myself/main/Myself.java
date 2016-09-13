@@ -106,8 +106,11 @@ public class Myself extends Fragment implements View.OnClickListener {
                 tv_sign.setText(User.getInstance().getSign());
             }
             //加载头像
-            final String url = User.getInstance().getAvatar();
-            NetWorkOperator.Set_Avatar(url, img_avatar);
+//            final String url = User.getInstance().getAvatar();
+//            NetWorkOperator.Set_Avatar(url, img_avatar);
+            img_avatar.setImageBitmap(User.getInstance().getBitmap());
+            System.out.println("我是头像1号");
+
             tv_concern_num.setText(App.Public_Care_Other.size() + "");
             tv_fan_num.setText(App.Public_Care_Me.size() + "");
             tv_article_num.setText(User.getInstance().getCollectedStoriesCount() + "");
@@ -354,8 +357,11 @@ public class Myself extends Fragment implements View.OnClickListener {
                     tv_name.setText(User.getInstance().getUserName());
                     tv_sign.setText(User.getInstance().getSign());
                     //加载头像
-                    final String url = User.getInstance().getAvatar();
-                    NetWorkOperator.Set_Avatar(url, img_avatar);
+//                    final String url = User.getInstance().getAvatar();
+//                    NetWorkOperator.Set_Avatar(url, img_avatar);
+                    img_avatar.setImageBitmap(User.getInstance().getBitmap());
+                    System.out.println("我是头像2号");
+
                     tv_concern_num.setText(App.Public_Care_Other.size() + "");
                     tv_fan_num.setText(App.Public_Care_Me.size() + "");
                     tv_article_num.setText(User.getInstance().getCollectedStoriesCount() + "");

@@ -19,9 +19,9 @@ import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Finding.Finding_fragment;
 import com.example.qjm3662.newproject.Finding.HomePage;
-import com.example.qjm3662.newproject.LoginAndRegister.LoginAndRegisterOperator;
 import com.example.qjm3662.newproject.Main_UI.MainActivity;
 import com.example.qjm3662.newproject.StoryView.StoryFragment;
+import com.example.qjm3662.newproject.Tool.EasySweetAlertDialog;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.example.qjm3662.newproject.myself.Article.ArticleActivity;
 import com.google.gson.Gson;
@@ -481,28 +481,28 @@ public class NetWorkOperator {
 
                                     //将用户信息转为User对象
                                     User user = gson.fromJson(response_jb.getJSONObject("msg").getJSONObject("user").toString(), User.class);
-                                    Log.e("User",user.toString());
+                                    Log.e("User", user.toString());
 
 
                                     JSONArray ja_follower = response_jb.getJSONObject("msg").getJSONArray("follower");
-                                    List<User>list_user = new ArrayList<User>();
-                                    for(int i = 0; i < ja_follower.length(); i++){
+                                    List<User> list_user = new ArrayList<User>();
+                                    for (int i = 0; i < ja_follower.length(); i++) {
                                         list_user.add(gson.fromJson(ja_follower.get(i).toString(), User.class));
                                     }
                                     user.setFollower(list_user);
 
                                     JSONArray ja_following = response_jb.getJSONObject("msg").getJSONArray("following");
-                                    List<User>list_user2 = new ArrayList<User>();
-                                    for(int i = 0; i < ja_following.length(); i++){
+                                    List<User> list_user2 = new ArrayList<User>();
+                                    for (int i = 0; i < ja_following.length(); i++) {
                                         list_user2.add(gson.fromJson(ja_following.get(i).toString(), User.class));
                                     }
                                     user.setFollowing(list_user2);
 
-                                    System.out.println(user.getFollower().size() + " : ; ; " + user.getFollowing().size());
-
-                                    System.out.println();
-
-                                    System.out.println(App.Public_Story_User.get(flag + length_before).getId());
+//                                    System.out.println(user.getFollower().size() + " : ; ; " + user.getFollowing().size());
+//
+//                                    System.out.println();
+//
+//                                    System.out.println(App.Public_Story_User.get(flag + length_before).getId());
 
                                     //System.out.println("finalI :"+finalI);
                                     //Log.e("GET_USER_INFO_FLAG",i_num[0] + "  " + finalI);
@@ -526,13 +526,13 @@ public class NetWorkOperator {
     }
 
 
-    public static void GET_USER_AVATAR(final User user, final Handler handler, final int position, final boolean isFinish){
+    public static void GET_USER_AVATAR(final User user, final Handler handler, final int position, final boolean isFinish) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 user.setBitmap(returnBitmap(user.getAvatar()));
                 App.Public_Story_User.set(position, user);
-                if(isFinish){
+                if (isFinish) {
                     handler.sendEmptyMessage(1);
                 }
             }
@@ -557,12 +557,12 @@ public class NetWorkOperator {
                     super.handleMessage(msg);
                     System.out.println("contents.length : " + contents.length);
                     System.out.println(imgMap);
-                    if(imgMap.size() == contents.length/2){
+                    if (imgMap.size() == contents.length / 2) {
                         switch (msg.what) {
                             case 0:
                                 String content = "";
-                                for(int i = 0; i < contents.length; i++){
-                                    if(i%2 != 0){
+                                for (int i = 0; i < contents.length; i++) {
+                                    if (i % 2 != 0) {
                                         contents[i] = imgMap.get(i + "");
                                     }
                                     content += contents[i];
@@ -606,28 +606,28 @@ public class NetWorkOperator {
                                         });
                                 break;
                         }
-                    }else if(msg.what == 1){
+                    } else if (msg.what == 1) {
                         System.out.println("case 1 !!!");
                         handler1.sendEmptyMessage(StoryFragment.UPLOADING_FAIL);
-                    }else{
+                    } else {
                         System.out.println("图片还没上传完呢！！！");
                     }
                 }
             };
-            if (contents.length == 1){//纯文字故事上传
+            if (contents.length == 1) {//纯文字故事上传
                 handler.sendEmptyMessage(0);
             }
-            for(int i = 0; i < contents.length; i++){
-                if(i % 2 != 0){//保存的是添加图片的路径
+            for (int i = 0; i < contents.length; i++) {
+                if (i % 2 != 0) {//保存的是添加图片的路径
                     System.out.println("i : " + contents[i]);
                     File file1 = new File(contents[i]);
                     final int finalI = i;
                     upFile(fileName, finalI, file1, imgMap, handler, 0);
-                }else{
+                } else {
                     System.out.println("not img" + i);
                 }
             }
-        }else{
+        } else {
             Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
         }
 
@@ -635,13 +635,14 @@ public class NetWorkOperator {
 
     /**
      * 上传文件到服务器（图片）
+     *
      * @param fileName
      * @param finalI
      * @param file
      * @param imgMap
      * @param handler
      */
-    public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler, int times_){
+    public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler, int times_) {
         final int[] times = {times_};
         OkHttpUtils
                 .post()//
@@ -652,10 +653,10 @@ public class NetWorkOperator {
                     @Override
                     public void onError(Call call, Exception e) {
                         System.out.println("UpLoadFile fail " + times[0] + " : " + e.toString());
-                        if(times[0] < 5){
+                        if (times[0] < 5) {
                             times[0]++;
                             upFile(fileName, finalI, file, imgMap, handler, times[0]);
-                        }else {
+                        } else {
                             System.out.println("SendMessage case 1!!!");
                             handler.sendEmptyMessage(1);
                         }
@@ -734,6 +735,7 @@ public class NetWorkOperator {
         } catch (IOException e) {
             return null;
         }
+        System.out.println("return Bitmap end in!!!!");
         return bitmap;
     }
 
@@ -767,7 +769,7 @@ public class NetWorkOperator {
                         .execute(new StringCallback() {
                             @Override
                             public void onError(Call call, Exception e) {
-                                LoginAndRegisterOperator.Login_error_tip(context, "账号或密码错误！", et_password);
+                                EasySweetAlertDialog.ShowCustom(context, "提示", "账号或密码错误！", R.drawable.img_warning);
                             }
 
                             @Override
@@ -779,8 +781,6 @@ public class NetWorkOperator {
                                     System.out.println(jsonObject1);
 
                                     if (jsonObject.getBoolean("status")) {
-                                        Toast.makeText(context, "登陆成功", Toast.LENGTH_SHORT).show();
-
                                         //将用户信息存储到SharePreferences中
                                         SharedPreferences sp = context.getSharedPreferences("User", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sp.edit();
@@ -800,17 +800,25 @@ public class NetWorkOperator {
                                         user.setToken(jsonObject1.getString(User.USER_TOKEN));
                                         getUserInfo(context, String.valueOf(User.getInstance().getId()));
 
-                                        context.startActivity(new Intent(context, MainActivity.class));
-                                        ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                                        ((Activity) context).finish();
+                                        EasySweetAlertDialog.SuccessCallBack callBack = new EasySweetAlertDialog.SuccessCallBack() {
+                                            @Override
+                                            public void Success() {
+                                                context.startActivity(new Intent(context, MainActivity.class));
+                                                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                                ((Activity) context).finish();
+                                            }
+                                        };
+                                        EasySweetAlertDialog.ShowSuccess(context, "登陆成功", callBack);
                                     } else {
                                         System.out.println("Callback error");
-                                        LoginAndRegisterOperator.Login_error_tip(context, "账号或密码错误！", et_password);
+                                        EasySweetAlertDialog.ShowCustom(context, "提示", "账号或密码错误！", R.drawable.img_warning);
+
                                     }
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    LoginAndRegisterOperator.Login_error_tip(context, "账号或密码错误！", et_password);
+                                    EasySweetAlertDialog.ShowCustom(context, "提示", "账号或密码错误！", R.drawable.img_warning);
+
                                 }
                             }
                         });
@@ -847,7 +855,7 @@ public class NetWorkOperator {
                         @Override
                         public void onError(Call call, Exception e) {
                             System.out.println(e.toString());
-                            LoginAndRegisterOperator.Login_error_tip(context, "手机号不存在或已注册！", et_password);
+                            EasySweetAlertDialog.ShowCustom(context, "提示", "手机号不存在或已注册！", R.drawable.img_warning);
                         }
 
                         @Override
@@ -860,7 +868,6 @@ public class NetWorkOperator {
                                 System.out.println(jsonObject);
                                 if (jsonObject.getBoolean("status")) {
 
-                                    Toast.makeText(context, "注册成功", Toast.LENGTH_SHORT).show();
 
                                     //将用户信息存储到SharePreferences中
                                     SharedPreferences sp = context.getSharedPreferences("User_", Context.MODE_PRIVATE);
@@ -868,15 +875,21 @@ public class NetWorkOperator {
                                     editor.putString("user_info", String.valueOf(object));
                                     editor.apply();
 
-                                    Login(et_phone_number, et_password, true, context);
+                                    EasySweetAlertDialog.SuccessCallBack callBack = new EasySweetAlertDialog.SuccessCallBack() {
+                                        @Override
+                                        public void Success() {
+                                            Login(et_phone_number, et_password, true, context);
+                                        }
+                                    };
+                                    EasySweetAlertDialog.ShowSuccess(context, "注册成功", callBack);
 
                                 } else {
                                     System.out.println("Callback error");
-                                    LoginAndRegisterOperator.Login_error_tip(context, "手机号不存在或已注册！", et_password);
+                                    EasySweetAlertDialog.ShowCustom(context, "提示", "手机号不存在或已注册！", R.drawable.img_warning);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                LoginAndRegisterOperator.Login_error_tip(context, "手机号不存在或已注册！", et_password);
+                                EasySweetAlertDialog.ShowCustom(context, "提示", "手机号不存在或已注册！", R.drawable.img_warning);
                             }
                         }
                     });
@@ -898,9 +911,9 @@ public class NetWorkOperator {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 0:
-                        if(bitmap[0] != null){
+                        if (bitmap[0] != null) {
                             img_avatar.setImageBitmap(bitmap[0]);
-                        }else{
+                        } else {
                             img_avatar.setImageResource(R.drawable.img_defaultavatar);
                         }
                         break;
@@ -926,6 +939,24 @@ public class NetWorkOperator {
     }
 
 
+    public static void GET_USER_AVATAR(final User user, final Handler handler, final List<User> receiveUser, final int position) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("return Bitmap begin!!!!");
+                user.setBitmap(returnBitmap(user.getAvatar()));
+                System.out.println("return Bitmap end out!!!!");
+
+                if(position >= 0){
+                    receiveUser.add(user);
+                }else{
+                    System.out.println("获取用户头像");
+                }
+                handler.sendEmptyMessage(1);
+            }
+        }).start();
+    }
+
     /**
      * 获取用户信息
      *
@@ -935,6 +966,8 @@ public class NetWorkOperator {
     public static void getUserInfo(final Context context, final String id) {
         System.out.println("Begin getUserInfo!!!!!");
         System.out.println(User.getInstance().getLoginToken());
+        //用来记录所需加载头像的个数（减至0时说明所有头像加载完毕，，向UI线程发送信号，填充信息）
+        final int[] count = {0};
         if (Tool.JudgeIsLogin(context)) {
             new Thread(new Runnable() {
                 @Override
@@ -956,6 +989,24 @@ public class NetWorkOperator {
 //                                    System.out.println(response);
                                     try {
                                         Log.e("USERINFO", response);
+                                        Handler handler = new Handler(){
+                                            @Override
+                                            public void handleMessage(Message msg) {
+                                                super.handleMessage(msg);
+                                                switch (msg.what){
+                                                    case 1:
+                                                        count[0]--;
+                                                        if(count[0] == 0){
+                                                            Intent intent = new Intent();
+                                                            intent.setAction("GET_INFO");
+                                                            context.sendBroadcast(intent);//传递过去
+                                                            System.out.println("SEND GET_INFO");
+                                                        }
+                                                        break;
+                                                }
+                                            }
+                                        };
+
                                         JSONObject jsonObject = new JSONObject(response);
                                         //如果登陆失效则重新获取Token,再次执行该函数
                                         if (jsonObject.getString("msg").equals("LoginToken")) {
@@ -982,20 +1033,28 @@ public class NetWorkOperator {
                                         user.setUserName(user_info.getString(User.USER_USER_NAME));
                                         user.setSex(user_info.getInt(User.USER_SEX));
 
+                                        count[0]++;     //一个
+
+                                        //获取用户自己的头像
+                                        GET_USER_AVATAR(user, handler, null, -1);
+
 
                                         //获取我关注的和关注我的；
                                         Gson gson = new Gson();
                                         List<User> list_user_base = new ArrayList<User>();
-                                        User User = null;
+                                        User user_temp = null;
+
                                         App.Public_Care_Me.clear();
                                         if (js_array_follower.length() != 0) {
                                             if (!js_array_follower.get(0).toString().equals("false")) {
+                                                count[0] += js_array_follower.length();
                                                 //同步关注我的人信息
                                                 for (int i = 0; i < js_array_follower.length(); i++) {
-                                                    User = gson.fromJson(js_array_follower.get(i).toString(), User.class);
-                                                    System.out.println("有人关注我 ： " + User.getId());
-                                                    list_user_base.add(User);
-                                                    App.Public_Care_Me.add(User);
+                                                    user_temp = gson.fromJson(js_array_follower.get(i).toString(), User.class);
+//                                                    System.out.println("有人关注我 ： " + User.getId());
+                                                    list_user_base.add(user_temp);
+//                                                    App.Public_Care_Me.add(user_temp);
+                                                    GET_USER_AVATAR(user_temp, handler, App.Public_Care_Me, 1);
                                                 }
                                                 if (list_user_base.size() != 0) {
                                                     user.setFollower(list_user_base);
@@ -1009,14 +1068,15 @@ public class NetWorkOperator {
                                         //同步我关注的人信息
                                         if (js_array_following.length() != 0) {
                                             if (!js_array_following.get(0).toString().equals("false")) {
+                                                count[0] += js_array_following.length();
                                                 for (int i = 0; i < js_array_following.length(); i++) {
-                                                    User = gson.fromJson(js_array_following.get(i).toString(), User.class);
-                                                    System.out.println("我在关注TA ： " + User.getId());
-                                                    list_user_base.add(User);
-                                                    App.Public_Care_Other.add(User);
-                                                    System.out.println(js_array_following);
+                                                    user_temp = gson.fromJson(js_array_following.get(i).toString(), User.class);
+                                                    System.out.println("我在关注TA ： " + user_temp.getId());
+                                                    list_user_base.add(user_temp);
+//                                                    App.Public_Care_Other.add(user_temp);
+//                                                    System.out.println(js_array_following);
+                                                    GET_USER_AVATAR(user_temp, handler, App.Public_Care_Other, 1);
                                                 }
-
                                                 if (list_user_base.size() != 0) {
                                                     user.setFollowing(list_user_base);
                                                 }
@@ -1029,9 +1089,6 @@ public class NetWorkOperator {
                                         //获取自己上传的文章
                                         Get_Person_Story_List(context, String.valueOf(user.getId()), 2, 1);
 
-                                        Intent intent = new Intent();
-                                        intent.setAction("GET_INFO");
-                                        context.sendBroadcast(intent);//传递过去
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();

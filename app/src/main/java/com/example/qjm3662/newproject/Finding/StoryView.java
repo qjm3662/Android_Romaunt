@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,8 +28,8 @@ import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.User;
-import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.Finding.Comment.CommentActivity;
+import com.example.qjm3662.newproject.Finding.Comment.UploadingHandler;
 import com.example.qjm3662.newproject.NWO_2;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
@@ -46,6 +47,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class StoryView extends FragmentActivity implements View.OnClickListener, OnMenuItemClickListener {
 
@@ -68,7 +71,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
 
     private Intent intent;
     private StoryBean story;
-    private UserBase userBase;
+    private User user;
     private int position;
     private int position_child;
 
@@ -84,12 +87,27 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     private StoryOperatorReceiver storyOperatorReceiver;
     public static String ACTION_PRAISE = "click praise";
 
+
+    public static final String FLAG_WHOSE_STORY = "flag";
+    public static final int FLAG_WHOSE_STORY_NOT_FIRST_VIEW = 1;
+    public static final int FLAG_WHOSE_STORY_MY_STORY = 2;
+
+    public static final String FLAG_POSITION = "position";
+    public static final String FLAG_CHILD_POSITION = "position_child";
+
+
+    public static final String FLAG_WHERE = "FLAG_WHERE";       //故事点击来源
+    public static final int FLAG_WHERE_PUBLIC = 0;              //广场故事
+    public static final int FLAG_WHERE_CARE_OTHER = 1;          //关注的人列表
+    public static final int FLAG_WHERE_CARE_ME = 2;             //粉丝列表
+
     private boolean praise_state = false;
     private boolean collect_state = false;
 
     private ChangeModeBroadCastReceiver receiver;
 
     private float width;
+    private SweetAlertDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,29 +123,30 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         registerReceiver(receiver, intentFilter);
 
         setContentView(R.layout.activity_story_view);
-//        Tool.ViewGroupAppear((ViewGroup) findViewById(R.id.rl_out), 100);
-
 
         //获取手机的高度和宽度
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         width = metric.widthPixels;     // 屏幕宽度（像素）
 
+
         //获取故事包含的信息
         intent = getIntent();
-        flag = intent.getIntExtra("flag", -1);
-        position = intent.getIntExtra("position", 0);
-        position_child = intent.getIntExtra("position_child", 0);
-        int where = intent.getIntExtra("FLAG_WHERE", 0);      //0->广场列表， 1->关注列表， 2->被关注列表
-        if (flag == 1) {
+        flag = intent.getIntExtra(FLAG_WHOSE_STORY, -1);
+        position = intent.getIntExtra(FLAG_POSITION, 0);
+        position_child = intent.getIntExtra(FLAG_CHILD_POSITION, 0);
+        int where = intent.getIntExtra(FLAG_WHERE, 0);      //0->广场列表， 1->关注列表， 2->被关注列表
+
+        if (flag == FLAG_WHOSE_STORY_NOT_FIRST_VIEW) {
             Not_First_View(where);
-        } else if (flag == 2) {    //浏览自己已上传的文章
+        } else if (flag == FLAG_WHOSE_STORY_MY_STORY) {    //浏览自己已上传的文章
             story = App.Public_My_Article_StoryList.get(position);
-            userBase = User.getInstance();
+            user = User.getInstance();
         } else {
             story = App.Public_StoryList.get(position);
-            userBase = story.getUser();
+            user = story.getUser();
         }
+        initSweetAlertDialog();
         initView();
         fillInformation();
         initContextMenu();
@@ -135,6 +154,29 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         //NWO_2.GetCommentList(this, story.getId());
         App.comment_story = story;
 
+    }
+
+    private void initSweetAlertDialog() {
+        pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("获取中");
+        pDialog.setCancelable(false);
+        Handler handler = new UploadingHandler(this, pDialog);
+    }
+
+
+    private void Not_First_View(int where) {
+        if (where == FLAG_WHERE_PUBLIC) {
+            user = App.Public_Story_User.get(position);
+
+        } else if (where == FLAG_WHERE_CARE_OTHER) {
+            user = App.Public_Care_Other.get(position);
+
+        } else if (where == FLAG_WHERE_CARE_ME) {
+            user = App.Public_Care_Me.get(position);
+
+        }
+        story = App.Public_HomePage_StoryList.get(position_child);
     }
 
     // img_head的跳转事件
@@ -231,16 +273,6 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         //Do something here
     }
 
-    private void Not_First_View(int where) {
-        if (where == 0) {
-            userBase = App.Public_Story_User.get(position);
-        } else if (where == 1) {
-            userBase = App.Public_Care_Other.get(position);
-        } else if (where == 2) {
-            userBase = App.Public_Care_Me.get(position);
-        }
-        story = App.Public_HomePage_StoryList.get(position_child);
-    }
 
     private void initView() {
         img_head = (ImageView) findViewById(R.id.user_info_item_head);
@@ -320,12 +352,13 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     }
 
     private void fillInformation() {
-        //加载头像
-        final String url = userBase.getAvatar();
-        NetWorkOperator.Set_Avatar(url, img_head);
+//        //加载头像
+//        final String url = user.getAvatar();
+//        NetWorkOperator.Set_Avatar(url, img_head);
+        img_head.setImageBitmap(user.getBitmap());
 
-        tv_name.setText(userBase.getUserName());
-        tv_sign.setText(userBase.getSign());
+        tv_name.setText(user.getUserName());
+        tv_sign.setText(user.getSign());
         tv_praise_num.setText(story.getLikeCount() + "");
         tv_flag.setText(story.getFlags());
 //        tv_content.setText(story.getContent());
@@ -334,18 +367,19 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         final Map<String, Bitmap> bmMap = Collections.synchronizedMap(new HashMap<String, Bitmap>());
         String temp = "";
         //先将图片以外的文字显示出来
-        for(int i = 0; i < sa.length; i++){
-            if(i % 2 == 0) {
+        for (int i = 0; i < sa.length; i++) {
+            if (i % 2 == 0) {
                 temp += sa[i];
             }
         }
         tv_content.setText(temp);
+        pDialog.show();
 
-        final Handler handler = new Handler(){
+        final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                switch (msg.what){
+                switch (msg.what) {
                     case 0:
                         tv_content.setText("");
                         Editable edit_text = tv_content.getEditableText();
@@ -353,23 +387,25 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                             System.out.println("Display== " + Arrays.toString(sa));
                             for (int i = 0; i < sa.length; i++) {
                                 System.out.println(sa[i]);
+                                pDialog.dismiss();
                                 if (i % 2 == 0) {
                                     edit_text.append(sa[i]);
                                 } else {
                                     Bitmap bm = bmMap.get(i + "");
                                     float multiple = width / (float) bm.getWidth();
                                     Bitmap_file_dir bfd = App.Public_Picture_Cache.get(sa[i]);
-                                    if(bfd == null){
+                                    if (bfd == null) {
                                         bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
                                         App.Public_Picture_Cache.put(sa[i], bfd);
                                         System.out.println("Get new bfd : " + i);
-                                    }else{
+                                    } else {
                                         System.out.println("bfd already exist : " + i);
                                     }
                                     System.out.println("Begin insert!!!");
                                     Tool.insertPic(bfd, sa[i], StoryView.this, tv_content);
                                     System.out.println("End insert!!!");
                                 }
+
                             }
                         }
                         break;
@@ -380,13 +416,13 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             @Override
             public void run() {
                 Bitmap_file_dir bfd;
-                for(int i = 0; i < sa.length; i++){
-                    if(i % 2 != 0){
+                for (int i = 0; i < sa.length; i++) {
+                    if (i % 2 != 0) {
                         bfd = App.Public_Picture_Cache.get(sa[i]);
-                        if(bfd == null){
+                        if (bfd == null) {
                             bmMap.put(i + "", NetWorkOperator.returnBitmap(sa[i]));
                             System.out.println("Woc, 又给我下图片 : " + i);
-                        }else {
+                        } else {
                             bmMap.put(i + "", bfd.getBitmap());
                             System.out.println("这图我看过23333 : " + i);
                         }
@@ -404,10 +440,10 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         switch (v.getId()) {
             case R.id.user_info_item_head:
                 if (flag != 1) {
-//                    Intent intent = new Intent(this, HomePage.class);
-//                    intent.putExtra("position", position);
-//                    startActivity(intent);
-                    startOtherActivity(img_head);
+                    Intent intent = new Intent(this, HomePage.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+//                    startOtherActivity(img_head);
                 }
                 break;
             case R.id.user_info_item_name:
@@ -415,13 +451,10 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             case R.id.user_info_item_sign:
                 break;
             case R.id.tv_praise:
-
                 break;
             case R.id.praise:
-
                 break;
             case R.id.collect:
-
                 break;
             case R.id.tv_flag:
                 break;
@@ -507,7 +540,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                     System.out.println("get praise broadcast");
                     System.out.println(story.getLikeCount());
                     System.out.println(story.toString());
-                    //System.out.println(userBase.toString());
+                    //System.out.println(user.toString());
                     break;
             }
         }

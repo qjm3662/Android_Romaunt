@@ -54,7 +54,7 @@ android {
         compile 'com.android.support:recyclerview-v7:24.1.1'
 
         compile 'com.netflix.feign:feign-gson:8.17.0'
-        compile files('E:/Romaint/libs/jpush-android-2.1.7.jar')
+        compile files('E:/Qjm/Android_Romaunt-master/libs/jpush-android-2.1.7.jar')
         compile 'com.android.support:support-v4:24.1.1'
         compile 'com.android.support:appcompat-v7:24.1.1'
 

@@ -13,10 +13,13 @@ import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
+import com.example.qjm3662.newproject.Tool.EasySweetAlertDialog;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.mylhyl.crlayout.IFooterLayout;
 import com.mylhyl.crlayout.SwipeRefreshListView;
 import com.mylhyl.crlayout.app.SwipeRefreshListFragment;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class Finding_fragment extends SwipeRefreshListFragment {
@@ -58,7 +61,8 @@ public class Finding_fragment extends SwipeRefreshListFragment {
         if (User.getInstance().getLoginToken() != null) {
             swipeRefreshListView.autoRefresh();
         } else {
-            Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+            EasySweetAlertDialog.ShowTip(getContext(), "Please Login First!");
         }
 
         adapter = new Finding_ListAdapter(getContext());
@@ -78,8 +82,9 @@ public class Finding_fragment extends SwipeRefreshListFragment {
 //        i.putExtra("JUDGE", false);
 //        i.putExtra("position", position);
 //        startActivity(i);
+
         Intent i = new Intent(getContext(), StoryView.class);
-        i.putExtra("position", position);
+        i.putExtra(StoryView.FLAG_POSITION, position);
         startActivity(i);
         ((Activity)getContext()).overridePendingTransition(App.enterAnim, App.exitAnim);
     }
@@ -93,6 +98,7 @@ public class Finding_fragment extends SwipeRefreshListFragment {
         if(Tool.JudgeIsLogin(getContext())){
             handler.sendEmptyMessageDelayed(REFREASH, 0);
         }else{
+            EasySweetAlertDialog.ShowTip(getContext(), "Please Login First!");
             swipeRefreshListView.setRefreshing(false);
         }
     }

@@ -87,8 +87,6 @@ public class Finding_ListAdapter extends BaseAdapter {
         }
 
 
-
-
         StoryBean listInfo = App.Public_StoryList.get(i);
         if(listInfo != null){
             if(listInfo.getCreatedAt() != null){

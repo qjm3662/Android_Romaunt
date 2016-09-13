@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qjm3662.newproject.App;
+import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
@@ -60,7 +61,7 @@ public class Care_me_Adapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        UserBase userBase = App.Public_Care_Me.get(position);
+        User userBase = App.Public_Care_Me.get(position);
         viewHolder.tv_nickname.setText(userBase.getUserName());
         viewHolder.tv_sign.setText(userBase.getSign());
 
@@ -70,7 +71,8 @@ public class Care_me_Adapter extends BaseAdapter {
         }else{
             viewHolder.img_sex.setImageResource(R.drawable.img_small_female);
         }
-        NetWorkOperator.Set_Avatar(userBase.getAvatar(), viewHolder.img_avatar);
+//        NetWorkOperator.Set_Avatar(userBase.getAvatar(), viewHolder.img_avatar);
+        viewHolder.img_avatar.setImageBitmap(userBase.getBitmap());
 
         return convertView;
     }
