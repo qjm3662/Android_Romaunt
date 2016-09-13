@@ -1,5 +1,7 @@
 package com.example.qjm3662.newproject.Data;
 
+import android.graphics.Bitmap;
+
 import java.util.List;
 
 /**
@@ -16,7 +18,17 @@ public class StoryBean {
     private int AuthorID;               //作者的Id
     private int likeCount;              //点赞总数
     private List<User> Users;
-    private UserBase user;
+    private User user;
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    private Bitmap bitmap;
 
     @Override
     public String toString() {
@@ -117,11 +129,23 @@ public class StoryBean {
     }
 
 
-    public UserBase getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserBase user) {
+    public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof StoryBean) {
+            StoryBean storyBean = (StoryBean) obj;
+//            Log.e("StoryBean-->equals",(this.id).equals(storyBean.getId())+"");
+            return this.id.equals(storyBean.getId());
+        }else{
+//            System.out.println("mdzz");
+            return false;
+        }
     }
 }

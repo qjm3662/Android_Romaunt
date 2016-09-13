@@ -17,13 +17,15 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.util.Log;
+import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.User;
-import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
 import com.example.qjm3662.newproject.myself.MyDialog;
@@ -46,6 +48,19 @@ import java.util.List;
  */
 public class Tool {
 
+
+    /**
+     * 容器出现动画
+     * @param viewGroup
+     * @param duration
+     */
+    public static void ViewGroupAppear(ViewGroup viewGroup, int duration){
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1);//定义一个缩放动画
+        scaleAnimation.setDuration(duration);
+        LayoutAnimationController controller = new LayoutAnimationController(scaleAnimation, 0.5f);
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        viewGroup.setLayoutAnimation(controller);//将动画设置到LinearLayout上
+    }
     /**
      * 删除单个文件
      * @param   filePath    被删除文件的文件名
@@ -96,13 +111,13 @@ public class Tool {
                 JSONArray js_array_follower = jsonObject.getJSONArray("follower");
                 JSONArray js_array_following = jsonObject.getJSONArray("following");
                 Gson gson = new Gson();
-                List<UserBase> list_user_base = new ArrayList<UserBase>();
-                UserBase userBase = null;
+                List<User> list_user_base = new ArrayList<User>();
+                User userBase = null;
                 if (js_array_follower.length() != 0) {
                     if (!js_array_follower.get(0).toString().equals("false")) {
                         for (int i = 0; i < js_array_follower.length(); i++) {
                             System.out.println(js_array_follower.get(i).toString() + "dscsadc");
-                            userBase = gson.fromJson(js_array_follower.get(i).toString(), UserBase.class);
+                            userBase = gson.fromJson(js_array_follower.get(i).toString(), User.class);
                             System.out.println("有人关注我 ： " + userBase.getId());
                             list_user_base.add(userBase);
                             App.Public_Care_Me.add(userBase);
@@ -118,7 +133,7 @@ public class Tool {
                 if (js_array_following.length() != 0) {
                     if (!js_array_following.get(0).toString().equals("false")) {
                         for (int i = 0; i < js_array_following.length(); i++) {
-                            userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
+                            userBase = gson.fromJson(js_array_following.get(i).toString(), User.class);
                             System.out.println("我在关注TA ： " + userBase.getId());
                             list_user_base.add(userBase);
                             App.Public_Care_Other.add(userBase);
@@ -165,7 +180,6 @@ public class Tool {
                 NetWorkOperator.UpDateUserInfo(context);
                 myDialog.dismiss();
             }
-
             @Override
             public void doCancel() {
                 myDialog.dismiss();
@@ -249,92 +263,6 @@ public class Tool {
         Bitmap_file_dir bfd = new Bitmap_file_dir(bitmap, path);
         return bfd;
     }
-//    public static Bitmap compressImage(Bitmap image) {
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
-//        int options = 100;
-//        while ( baos.toByteArray().length / 1024>100) {    //循环判断如果压缩后图片是否大于100kb,大于继续压缩
-//            baos.reset();//重置baos即清空baos
-//            options -= 10;//每次都减少10
-//            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中
-//        }
-//        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
-//        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
-//        return bitmap;
-//    }
-
-
-//    public static void compressPicture(String srcPath, String desPath) {
-//        FileOutputStream fos = null;
-//        BitmapFactory.Options op = new BitmapFactory.Options();
-//        // 开始读入图片，此时把options.inJustDecodeBounds 设成true
-//        //只会读取图片的宽高，而不会生成bitmap
-//        op.inJustDecodeBounds = true;
-//        Bitmap bitmap = BitmapFactory.decodeFile(srcPath, op);
-//        op.inJustDecodeBounds = false;
-//
-//        // 缩放图片的尺寸
-//        float w = op.outWidth;
-//        float h = op.outHeight;
-////        float ww = App.width - 80;
-//        float hh = 1024f;//
-//        float ww = 1024f;//
-//        // 最长宽度或高度1024
-//        float be = 1.0f;
-//        if (w > h && w > ww) {
-//            be = (float) (w / ww);
-//        } else if (w < h && h > hh) {
-//            be = (float) (h / hh);
-//        }
-//        if (be <= 0) {
-//            be = 1.0f;
-//        }
-//        op.inSampleSize = (int) be;// 设置缩放比例,这个数字越大,图片大小越小.
-//        // 重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
-//        bitmap = BitmapFactory.decodeFile(srcPath, op);
-//        int desWidth = (int) (w / be);
-//        int desHeight = (int) (h / be);
-//        bitmap = Bitmap.createScaledBitmap(bitmap, desWidth, desHeight, true);
-//        try {
-//            fos = new FileOutputStream(desPath);
-//            if (bitmap != null) {
-//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-//    /**
-//     * Bitmap存为文件，并返回保存路径
-//     * @param bitmap   The Bitmap you want to save
-//     * @return
-//     */
-//    public static String saveBitmapAsFile(Bitmap bitmap){
-//        String path = App.pro_cache_dir + System.currentTimeMillis() + ".png";
-//        File file = new File(path);
-//        if(!file.exists()){
-//            try {
-//                file.createNewFile();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        FileOutputStream fileOutputStream = null;
-//        try {
-//            fileOutputStream = new FileOutputStream(file);
-//            System.out.println("OPTIONS : " + option);
-//            bitmap.compress(Bitmap.CompressFormat.PNG, option, fileOutputStream);
-//            fileOutputStream.flush();
-//            fileOutputStream.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Log.e("BitmapToFile : ", file.length() + "");
-//        return path;
-//    }
-
     /**
      * byte数组存为文件，并返回路径
      * @param bytes 输出流.toByteArray()

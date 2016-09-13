@@ -1,7 +1,6 @@
 package com.example.qjm3662.newproject.Data;
 
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -10,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class StoryDB extends SQLiteOpenHelper {
     public static final String TABLE_NAME_STORY = "story";
+    public static final String TABLE_NAME_STORY_COLLECTIONS = "story2";
     public static final String COLUMN_NAME_ID = "_id";
     public static final String COLUMN_NAME_TITLE = "title";
     public static final String COLUMN_NAME_FLAGS = "flags";                  //故事的标签
@@ -34,8 +34,10 @@ public class StoryDB extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_FOLLOWER_ENABLE = "followerEnable";
     public static final String COLUMN_NAME_COLLECTED_STORIES_COUNT = "collectedStoriesCount";
 
+    public static final int SQLiteVersion = 2;
+
     public StoryDB(Context context){
-        super(context,"Story",null,1);
+        super(context,"Story",null,SQLiteVersion);
     }
     public StoryDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -73,6 +75,17 @@ public class StoryDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("CREATE TABLE " + TABLE_NAME_STORY_COLLECTIONS+"("+
+                COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                COLUMN_NAME_TITLE + " TEXT NOT NULL DEFAULT \"\","+
+                COLUMN_NAME_FLAGS + " TEXT NOT NULL DEFAULT \"\","+
+                COLUMN_NAME_CONTENT + " TEXT NOT NULL DEFAULT \"\","+
+                COLUMN_NAME_PUBLIC_ENABLE + " BIT NOT NULL DEFAULT 0,"+
+                COLUMN_NAME_CREATE_AT + " DATETIME NOT NULL DEFAULT \"\","+
+                COLUMN_NAME_UPDATE_AT + " DATETIME NOT NULL DEFAULT \"\","+
+                COLUMN_NAME_AUTHOR_ID + " INTEGER NOT NULL DEFAULT 0,"+
+                COLUMN_NAME_LIKE_COUNT + " INTEGER NOT NULL DEFAULT 0,"+
+                COLUMN_NAME_ISO_WN + " TEXT NOT NULL DEFAULT \"\""+
+                ")");
     }
 }

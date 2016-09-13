@@ -4,6 +4,7 @@ buildscript {//构建用
     repositories {
         //是个网站
         jcenter()
+        mavenCentral()
     }
     //依赖
     dependencies {
@@ -21,6 +22,7 @@ buildscript {//构建用
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
     }
 }
 

@@ -88,7 +88,7 @@ public class Public_settings extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.cloud_imageView_story:
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.l_is_public_fan:
 

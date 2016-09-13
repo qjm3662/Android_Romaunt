@@ -95,14 +95,14 @@ public class ArticleActivity extends ListActivity implements View.OnClickListene
         intent.putExtra("flag", 2);
         intent.putExtra("position", p);
         startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
 

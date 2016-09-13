@@ -15,6 +15,8 @@ import com.example.qjm3662.newproject.Data.StoryDB;
 import com.example.qjm3662.newproject.R;
 import com.example.qjm3662.newproject.Tool.Tool;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 /**
  * Created by qjm3662 on 2016/8/24 0024.
  */
@@ -74,7 +76,8 @@ public class StoryListViewAdapter extends BaseSwipeAdapter {
         View view = inflater.inflate(R.layout.activity_story_list_item, null);
         SwipeLayout swipeLayout = (SwipeLayout) view.findViewById(R.id.sample);
         //set show mode.
-        swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
+        swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+        swipeLayout.setLeftSwipeEnabled(false);
         //add drag edge.(If the BottomView has 'layout_gravity' attribute, this line is unnecessary)
         swipeLayout.addDrag(SwipeLayout.DragEdge.Left, view.findViewById(R.id.bottom_wrapper));
         swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
@@ -88,6 +91,8 @@ public class StoryListViewAdapter extends BaseSwipeAdapter {
             public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
                 //you are swiping.
                 isSwipe = true;
+                System.out.println("leftOffset : " + leftOffset);
+                System.out.println("topOffset : " + topOffset);
             }
 
             @Override
@@ -110,31 +115,49 @@ public class StoryListViewAdapter extends BaseSwipeAdapter {
                 //when user's hand released.
             }
         });
+        //故事内容出现动画
+        Tool.ViewGroupAppear((ViewGroup) view.findViewById(R.id.rl_story), 200);
         return view;
     }
 
     @Override
-    public void fillValues(final int position, View view) {
+    public void fillValues(final int position, final View vv) {
         ViewHolder viewHolder = null;
-        viewHolder = new ViewHolder(view);
-        TextView tv = (TextView) view.findViewById(R.id.delete_slide);
+        viewHolder = new ViewHolder(vv);
+        TextView tv = (TextView) vv.findViewById(R.id.delete_slide);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //Log.e(TAG,"position"+position);
-                System.out.println("Begin delete!!!!");
-                Story story = App.StoryList.get(position);
-                String[] contents = story.getContent().split("<img>");
-                //删除本地故事时删除其缓存的图片
-                for(int i = 0; i < contents.length; i++){
-                    if(i % 2 != 0){
-                        Tool.deleteFile(contents[i]);
-                    }
-                }
-                App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())});
-                App.StoryList.remove(position);
-                notifyDataSetChanged();
-                System.out.println("End delete!!");
+            public void onClick(final View view) {
+                ((SwipeLayout)vv).close();
+                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Are you sure?")
+                        .setContentText("Won't be able to recover this file!")
+                        .setConfirmText("Yes,delete it!")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                                //Log.e(TAG,"position"+position);
+                                System.out.println("Begin delete!!!!");
+                                Story story = App.StoryList.get(position);
+                                String[] contents = story.getContent().split("<img>");
+                                //删除本地故事时删除其缓存的图片
+                                for(int i = 0; i < contents.length; i++){
+                                    if(i % 2 != 0){
+                                        Tool.deleteFile(contents[i]);
+                                    }
+                                }
+//                                System.out.println("Localid : " + String.valueOf(story.getLocal_id()));
+                                if(0 == App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())})){
+                                    App.dbWrite.delete(StoryDB.TABLE_NAME_STORY, StoryDB.COLUMN_NAME_ID + "=?", new String[]{String.valueOf(story.getLocal_id())});
+                                }
+                                App.StoryList.remove(position);
+                                notifyDataSetChanged();
+                                System.out.println("End delete!!");
+                            }
+                        })
+                        .show();
+
             }
         });
 

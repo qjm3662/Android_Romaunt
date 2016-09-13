@@ -17,7 +17,7 @@ android {
     defaultConfig {
         //包名
         applicationId "com.example.qjm3662.newproject"
-        minSdkVersion 17
+        minSdkVersion 21
         //目标版本
         targetSdkVersion 23
         versionCode 1
@@ -57,5 +57,16 @@ android {
         compile files('E:/Romaint/libs/jpush-android-2.1.7.jar')
         compile 'com.android.support:support-v4:24.1.1'
         compile 'com.android.support:appcompat-v7:24.1.1'
+
+        //信封折叠效果
+        compile 'com.alexvasilkov:foldable-layout:1.2.0'
+
+        compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
+            // exclusion is not necessary, but generally a good idea.
+            exclude group: 'com.google.android', module: 'support-v4'
+        }
+
+        //弹出提示框
+        compile 'cn.pedant.sweetalert:library:1.3'
     }
 }

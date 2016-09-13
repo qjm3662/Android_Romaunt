@@ -178,7 +178,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                     }
                 }
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.img_flag:
                 String content1 = null;
@@ -198,7 +198,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                         save_story();
                         StoryFragment.refreshStoryListView();
                         finish();
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        overridePendingTransition(App.enterAnim, App.exitAnim);
                     } else {
                         ShowDialog(null, null, 1);
                     }
@@ -233,7 +233,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                     save_story();
                     StoryFragment.refreshStoryListView();
                     finish();
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    overridePendingTransition(App.enterAnim, App.exitAnim);
                 }
                 myDialog.dismiss();
             }
@@ -248,7 +248,7 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                     save_story();
                     StoryFragment.refreshStoryListView();
                     finish();
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    overridePendingTransition(App.enterAnim, App.exitAnim);
                 }
                 myDialog.dismiss();
             }
@@ -394,7 +394,11 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
             story.setCreatedAt(sdr.format(date));
             story.setPublicEnable(a);
             story.setFlags(tv_flag.getText().toString());
-            App.dbWrite.insert(StoryDB.TABLE_NAME_STORY, null, cv);
+            //获取插入的位置ID
+            long i = App.dbWrite.insert(StoryDB.TABLE_NAME_STORY, null, cv);
+            story.setLocal_id((int) i);
+
+            System.out.println("Insert ID : " + i);
             App.StoryList.add(story);
             System.out.println("create success");
         }
@@ -415,9 +419,10 @@ public class Edit_Story extends Activity implements View.OnClickListener, View.O
                     File file = new File(sa[i]);
                     if(file.exists()) {
                         Bitmap bm = BitmapFactory.decodeFile(sa[i]);
-                        Bitmap_file_dir bfd = null;
-                        float multiple = (float) width / (float) bm.getWidth();
-                        bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                        System.out.println("sa[" + i + "] : " + sa[i]);
+                        Bitmap_file_dir bfd = new Bitmap_file_dir(bm, sa[i]);
+//                        float multiple = (float) width / (float) bm.getWidth();
+//                        bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
                         Tool.insertPic(bfd, sa[i], Edit_Story.this, et_input);
                     }else{
                         System.out.println("File not exist");

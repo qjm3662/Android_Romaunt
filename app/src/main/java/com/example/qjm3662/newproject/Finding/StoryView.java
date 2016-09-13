@@ -105,6 +105,8 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         registerReceiver(receiver, intentFilter);
 
         setContentView(R.layout.activity_story_view);
+//        Tool.ViewGroupAppear((ViewGroup) findViewById(R.id.rl_out), 100);
+
 
         //获取手机的高度和宽度
         DisplayMetrics metric = new DisplayMetrics();
@@ -132,6 +134,19 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         initReceiver();
         //NWO_2.GetCommentList(this, story.getId());
         App.comment_story = story;
+
+    }
+
+    // img_head的跳转事件
+    public void startOtherActivity(View view) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            ActivityOptions options =
+//                    ActivityOptions.makeSceneTransitionAnimation(this, img_head, img_head.getTransitionName());
+//            startActivity(new Intent(this, HomePage.class), options.toBundle());
+//        } else {
+//            startActivity(new Intent(this, HomePage.class));
+//        }
+        startActivity(new Intent(this, HomePage.class));
     }
 
 
@@ -343,7 +358,14 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                                 } else {
                                     Bitmap bm = bmMap.get(i + "");
                                     float multiple = width / (float) bm.getWidth();
-                                    Bitmap_file_dir bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                                    Bitmap_file_dir bfd = App.Public_Picture_Cache.get(sa[i]);
+                                    if(bfd == null){
+                                        bfd = Tool.resize_bitmap(bm, width - 80, multiple * bm.getHeight() - 80);
+                                        App.Public_Picture_Cache.put(sa[i], bfd);
+                                        System.out.println("Get new bfd : " + i);
+                                    }else{
+                                        System.out.println("bfd already exist : " + i);
+                                    }
                                     System.out.println("Begin insert!!!");
                                     Tool.insertPic(bfd, sa[i], StoryView.this, tv_content);
                                     System.out.println("End insert!!!");
@@ -355,24 +377,20 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             }
         };
         new Thread(new Runnable() {
-
             @Override
             public void run() {
-                Bitmap bitmap = null;
+                Bitmap_file_dir bfd;
                 for(int i = 0; i < sa.length; i++){
                     if(i % 2 != 0){
-                        bitmap = App.Public_Picture_Cache.get(sa[i]);
-                        if(bitmap == null){
-                            bitmap = NetWorkOperator.returnBitmap(sa[i]);
-                            bmMap.put(i + "", bitmap);
-                            App.Public_Picture_Cache.put(sa[i], bitmap);
-                            System.out.println("Woc, 又给我下图片");
+                        bfd = App.Public_Picture_Cache.get(sa[i]);
+                        if(bfd == null){
+                            bmMap.put(i + "", NetWorkOperator.returnBitmap(sa[i]));
+                            System.out.println("Woc, 又给我下图片 : " + i);
                         }else {
-                            bmMap.put(i + "", bitmap);
-                            System.out.println("这图我看过23333");
+                            bmMap.put(i + "", bfd.getBitmap());
+                            System.out.println("这图我看过23333 : " + i);
                         }
                     }
-                    bitmap = null;
                 }
                 handler.sendEmptyMessage(0);
             }
@@ -386,9 +404,10 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
         switch (v.getId()) {
             case R.id.user_info_item_head:
                 if (flag != 1) {
-                    Intent intent = new Intent(this, HomePage.class);
-                    intent.putExtra("position", position);
-                    startActivity(intent);
+//                    Intent intent = new Intent(this, HomePage.class);
+//                    intent.putExtra("position", position);
+//                    startActivity(intent);
+                    startOtherActivity(img_head);
                 }
                 break;
             case R.id.user_info_item_name:
@@ -417,7 +436,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
                 i.putExtra(Edit_Story.FLAG_WHERE_ARE_YOU_FROM, Edit_Story.FLAG_FROM_ONLINE_ARTICLE);
                 i.putExtra("JUDGE", true);
                 startActivity(i);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.rl_praise:
                 change_praise_state();
@@ -430,7 +449,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
             case R.id.rl_comment:
                 Intent intent = new Intent(this, CommentActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 //NWO_2.GiveComment(this,story.getId());
                 break;
             case R.id.rl_transmit:
@@ -476,7 +495,7 @@ public class StoryView extends FragmentActivity implements View.OnClickListener,
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
     private class StoryOperatorReceiver extends BroadcastReceiver {

@@ -17,11 +17,11 @@ import com.example.qjm3662.newproject.Data.Final_Static_data;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.User;
-import com.example.qjm3662.newproject.Data.UserBase;
 import com.example.qjm3662.newproject.Finding.Finding_fragment;
 import com.example.qjm3662.newproject.Finding.HomePage;
 import com.example.qjm3662.newproject.LoginAndRegister.LoginAndRegisterOperator;
 import com.example.qjm3662.newproject.Main_UI.MainActivity;
+import com.example.qjm3662.newproject.StoryView.StoryFragment;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.example.qjm3662.newproject.myself.Article.ArticleActivity;
 import com.google.gson.Gson;
@@ -136,6 +136,7 @@ public class NetWorkOperator {
 
                                     if (where == 0) {
                                         HomePage.adapter.notifyDataSetChanged();
+                                        HomePage.hps_article_num.setText(App.Public_HomePage_StoryList.size() + "");
                                         if (flag == 1) {
                                             HomePage.mPullToRefreshView.setRefreshing(false);
                                         }
@@ -269,17 +270,17 @@ public class NetWorkOperator {
 
                                             //获取我关注的和关注我的；
                                             Gson gson = new Gson();
-                                            List<UserBase> list_user_base = new ArrayList<UserBase>();
-                                            UserBase userBase = null;
+                                            List<User> list_user_base = new ArrayList<User>();
+                                            User User = null;
                                             App.Public_Care_Me.clear();
                                             if (js_array_follower.length() != 0) {
                                                 if (!js_array_follower.get(0).toString().equals("false")) {
                                                     //同步关注我的人信息
                                                     for (int i = 0; i < js_array_follower.length(); i++) {
-                                                        userBase = gson.fromJson(js_array_follower.get(i).toString(), UserBase.class);
-                                                        System.out.println("有人关注我 ： " + userBase.getId());
-                                                        list_user_base.add(userBase);
-                                                        App.Public_Care_Me.add(userBase);
+                                                        User = gson.fromJson(js_array_follower.get(i).toString(), User.class);
+                                                        System.out.println("有人关注我 ： " + User.getId());
+                                                        list_user_base.add(User);
+                                                        App.Public_Care_Me.add(User);
                                                     }
                                                     if (list_user_base.size() != 0) {
                                                         user.setFollower(list_user_base);
@@ -293,10 +294,10 @@ public class NetWorkOperator {
                                             if (js_array_following.length() != 0) {
                                                 if (!js_array_following.get(0).toString().equals("false")) {
                                                     for (int i = 0; i < js_array_following.length(); i++) {
-                                                        userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
-                                                        System.out.println("我在关注TA ： " + userBase.getId());
-                                                        list_user_base.add(userBase);
-                                                        App.Public_Care_Other.add(userBase);
+                                                        User = gson.fromJson(js_array_following.get(i).toString(), User.class);
+                                                        System.out.println("我在关注TA ： " + User.getId());
+                                                        list_user_base.add(User);
+                                                        App.Public_Care_Other.add(User);
                                                         System.out.println(js_array_following);
                                                     }
 
@@ -350,6 +351,7 @@ public class NetWorkOperator {
                             @Override
                             public void onError(Call call, Exception e) {
                                 //System.out.println("error");
+                                Finding_fragment.swipeRefreshListView.setLoading(false);
                             }
 
                             @Override
@@ -357,7 +359,6 @@ public class NetWorkOperator {
                                 //System.out.println("RESPONSE  : " + response);
                                 try {
                                     JSONObject object = new JSONObject(response);
-
                                     //如果登陆失效则重新获取Token,再次执行该函数
                                     if (object.getString("msg").equals("LoginToken")) {
                                         getNew_Token(User.getInstance().getToken());
@@ -381,15 +382,17 @@ public class NetWorkOperator {
                                                 case 1:
                                                     for (int i = 0; i < jsonObject.length(); i++) {
                                                         StoryBean story = null;
-                                                        System.out.println(App.Public_Story_User.size() + "  " + App.Public_StoryList.size());
+//                                                        System.out.println(App.Public_Story_User.size() + "  " + App.Public_StoryList.size());
                                                         try {
                                                             //用Gson解析器，将返回的Json数据转为Story对象
                                                             story = gson.fromJson(jsonObject.get(i).toString(), StoryBean.class);
+//                                                            story.setBitmap(returnBitmap(App.Public_Story_User.get(i).getAvatar()));
                                                             //将故事对应的用户信息加到故事里去
                                                             story.setUser(App.Public_Story_User.get(i + length_before));
                                                             if (!App.Public_StoryList.contains(story)) {
                                                                 App.Public_StoryList.add(story);
-                                                                Log.e("Story", story.toString());
+//                                                                System.out.println("不包含");
+//                                                                Log.e("Story", story.toString());
                                                             }
                                                         } catch (JSONException e) {
                                                             e.printStackTrace();
@@ -436,7 +439,7 @@ public class NetWorkOperator {
 
         //先创建对应数量的实例
         for (int i = 0; i < jsonArray.length(); i++) {
-            App.Public_Story_User.add(new UserBase());
+            App.Public_Story_User.add(new User());
         }
 
         //获取用户信息操作
@@ -445,7 +448,7 @@ public class NetWorkOperator {
             //用户的Json数据实例
             JSONObject jb_ = null;
 
-            //用来标记这是第几个故事对应的用户信息（与  App.Public_Story_User.set(flag, userBase);  相配合）
+            //用来标记这是第几个故事对应的用户信息（与  App.Public_Story_User.set(flag, User);  相配合）
             final int flag = i;
             try {
                 jb_ = new JSONObject(jsonArray.get(i).toString());
@@ -466,6 +469,7 @@ public class NetWorkOperator {
 
                             @Override
                             public void onResponse(String response) {
+//                                System.out.println(response);
                                 Gson gson = new Gson();
                                 try {
                                     flag_if_over[0]++;
@@ -475,19 +479,38 @@ public class NetWorkOperator {
 
                                     //System.out.println(response_jb);
 
-                                    //将用户信息转为UserBase对象
-                                    UserBase userBase = gson.fromJson(response_jb.getJSONObject("msg").getJSONObject("user").toString(), UserBase.class);
-                                    App.Public_Story_User.set(flag + length_before, userBase);
+                                    //将用户信息转为User对象
+                                    User user = gson.fromJson(response_jb.getJSONObject("msg").getJSONObject("user").toString(), User.class);
+                                    Log.e("User",user.toString());
+
+
+                                    JSONArray ja_follower = response_jb.getJSONObject("msg").getJSONArray("follower");
+                                    List<User>list_user = new ArrayList<User>();
+                                    for(int i = 0; i < ja_follower.length(); i++){
+                                        list_user.add(gson.fromJson(ja_follower.get(i).toString(), User.class));
+                                    }
+                                    user.setFollower(list_user);
+
+                                    JSONArray ja_following = response_jb.getJSONObject("msg").getJSONArray("following");
+                                    List<User>list_user2 = new ArrayList<User>();
+                                    for(int i = 0; i < ja_following.length(); i++){
+                                        list_user2.add(gson.fromJson(ja_following.get(i).toString(), User.class));
+                                    }
+                                    user.setFollowing(list_user2);
+
+                                    System.out.println(user.getFollower().size() + " : ; ; " + user.getFollowing().size());
+
+                                    System.out.println();
 
                                     System.out.println(App.Public_Story_User.get(flag + length_before).getId());
 
                                     //System.out.println("finalI :"+finalI);
                                     //Log.e("GET_USER_INFO_FLAG",i_num[0] + "  " + finalI);
 
+                                    GET_USER_AVATAR(user, handler, flag + length_before, flag_if_over[0] == jsonArray.length());
                                     //所有信息转换完毕，通知上层函数
                                     if (flag_if_over[0] == jsonArray.length()) {
                                         System.out.println("Handler + " + flag_if_over[0]);
-                                        handler.sendEmptyMessage(1);
                                         System.out.println(User.getInstance().getUserName());
                                     }
                                 } catch (JSONException e) {
@@ -503,13 +526,27 @@ public class NetWorkOperator {
     }
 
 
+    public static void GET_USER_AVATAR(final User user, final Handler handler, final int position, final boolean isFinish){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user.setBitmap(returnBitmap(user.getAvatar()));
+                App.Public_Story_User.set(position, user);
+                if(isFinish){
+                    handler.sendEmptyMessage(1);
+                }
+            }
+        }).start();
+    }
+
+
     /**
      * 上传故事
      *
      * @param context
      * @param story
      */
-    public static void UpLoad_story(final Context context, final Story story, final String fileName) {
+    public static void UpLoad_story(final Context context, final Story story, final String fileName, final Handler handler1) {
         if (Tool.JudgeIsLogin(context)) {
             final String[] contents = story.getContent().split("<img>");
             final Map<String, String> imgMap = Collections.synchronizedMap(new HashMap<String, String>());
@@ -548,6 +585,7 @@ public class NetWorkOperator {
                                                 } else {
                                                     Toast.makeText(context, "上传失败", Toast.LENGTH_SHORT).show();
                                                 }
+                                                handler1.sendEmptyMessage(StoryFragment.UPLOADING_FAIL);
                                             }
 
                                             @Override
@@ -556,9 +594,10 @@ public class NetWorkOperator {
                                                     JSONObject jsonObject = new JSONObject(response);
                                                     if (jsonObject.getString("msg").equals("LoginToken")) {
                                                         getNew_Token(User.getInstance().getToken());
-                                                        UpLoad_story(context, story, fileName);
+                                                        UpLoad_story(context, story, fileName, handler1);
                                                     } else {
-                                                        Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
+//                                                        Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
+                                                        handler1.sendEmptyMessage(StoryFragment.UPLOADING_SUCCESS);
                                                     }
                                                 } catch (JSONException e) {
                                                     e.printStackTrace();
@@ -567,6 +606,9 @@ public class NetWorkOperator {
                                         });
                                 break;
                         }
+                    }else if(msg.what == 1){
+                        System.out.println("case 1 !!!");
+                        handler1.sendEmptyMessage(StoryFragment.UPLOADING_FAIL);
                     }else{
                         System.out.println("图片还没上传完呢！！！");
                     }
@@ -580,7 +622,7 @@ public class NetWorkOperator {
                     System.out.println("i : " + contents[i]);
                     File file1 = new File(contents[i]);
                     final int finalI = i;
-                    upFile(fileName, finalI, file1, imgMap, handler);
+                    upFile(fileName, finalI, file1, imgMap, handler, 0);
                 }else{
                     System.out.println("not img" + i);
                 }
@@ -599,7 +641,8 @@ public class NetWorkOperator {
      * @param imgMap
      * @param handler
      */
-    public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler){
+    public static void upFile(final String fileName, final int finalI, final File file, final Map imgMap, final Handler handler, int times_){
+        final int[] times = {times_};
         OkHttpUtils
                 .post()//
                 .url(Final_Static_data.UP_FILE)
@@ -608,8 +651,14 @@ public class NetWorkOperator {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e) {
-                        System.out.println("UpLoadFile fail : " + e.toString());
-                        upFile(fileName, finalI, file, imgMap, handler);
+                        System.out.println("UpLoadFile fail " + times[0] + " : " + e.toString());
+                        if(times[0] < 5){
+                            times[0]++;
+                            upFile(fileName, finalI, file, imgMap, handler, times[0]);
+                        }else {
+                            System.out.println("SendMessage case 1!!!");
+                            handler.sendEmptyMessage(1);
+                        }
                     }
 
                     @Override
@@ -849,7 +898,11 @@ public class NetWorkOperator {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 0:
-                        img_avatar.setImageBitmap(bitmap[0]);
+                        if(bitmap[0] != null){
+                            img_avatar.setImageBitmap(bitmap[0]);
+                        }else{
+                            img_avatar.setImageResource(R.drawable.img_defaultavatar);
+                        }
                         break;
                 }
             }
@@ -900,8 +953,7 @@ public class NetWorkOperator {
 
                                 @Override
                                 public void onResponse(String response) {
-
-
+//                                    System.out.println(response);
                                     try {
                                         Log.e("USERINFO", response);
                                         JSONObject jsonObject = new JSONObject(response);
@@ -933,17 +985,17 @@ public class NetWorkOperator {
 
                                         //获取我关注的和关注我的；
                                         Gson gson = new Gson();
-                                        List<UserBase> list_user_base = new ArrayList<UserBase>();
-                                        UserBase userBase = null;
+                                        List<User> list_user_base = new ArrayList<User>();
+                                        User User = null;
                                         App.Public_Care_Me.clear();
                                         if (js_array_follower.length() != 0) {
                                             if (!js_array_follower.get(0).toString().equals("false")) {
                                                 //同步关注我的人信息
                                                 for (int i = 0; i < js_array_follower.length(); i++) {
-                                                    userBase = gson.fromJson(js_array_follower.get(i).toString(), UserBase.class);
-                                                    System.out.println("有人关注我 ： " + userBase.getId());
-                                                    list_user_base.add(userBase);
-                                                    App.Public_Care_Me.add(userBase);
+                                                    User = gson.fromJson(js_array_follower.get(i).toString(), User.class);
+                                                    System.out.println("有人关注我 ： " + User.getId());
+                                                    list_user_base.add(User);
+                                                    App.Public_Care_Me.add(User);
                                                 }
                                                 if (list_user_base.size() != 0) {
                                                     user.setFollower(list_user_base);
@@ -958,10 +1010,10 @@ public class NetWorkOperator {
                                         if (js_array_following.length() != 0) {
                                             if (!js_array_following.get(0).toString().equals("false")) {
                                                 for (int i = 0; i < js_array_following.length(); i++) {
-                                                    userBase = gson.fromJson(js_array_following.get(i).toString(), UserBase.class);
-                                                    System.out.println("我在关注TA ： " + userBase.getId());
-                                                    list_user_base.add(userBase);
-                                                    App.Public_Care_Other.add(userBase);
+                                                    User = gson.fromJson(js_array_following.get(i).toString(), User.class);
+                                                    System.out.println("我在关注TA ： " + User.getId());
+                                                    list_user_base.add(User);
+                                                    App.Public_Care_Other.add(User);
                                                     System.out.println(js_array_following);
                                                 }
 

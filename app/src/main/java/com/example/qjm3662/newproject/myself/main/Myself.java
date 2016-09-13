@@ -152,7 +152,6 @@ public class Myself extends Fragment implements View.OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case PHOTO_REQUEST_TAKEPHOTO:// 当选择拍照时调用
-                System.out.println("start cut");
                 startPhotoZoom(Uri.fromFile(tempFile));
                 break;
             case PHOTO_REQUEST_GALLERY:// 当选择从本地获取图片时
@@ -245,7 +244,7 @@ public class Myself extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.my_settings:
                 Intent intent = new Intent(getActivity(), my_settings.class);
-                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 startActivity(intent);
                 break;
             case R.id.img_avatar:
@@ -264,33 +263,33 @@ public class Myself extends Fragment implements View.OnClickListener {
                 Intent intent_care_me = new Intent(context, care.class);
                 intent_care_me.addFlags(2);
                 startActivity(intent_care_me);
-                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.my_care_other:
                 Intent intent_care_other = new Intent(context, care.class);
                 intent_care_other.addFlags(1);
                 startActivity(intent_care_other);
-                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.my_collection:
                 startActivity(new Intent(context, collection.class));
-                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.my_feedback:
                 startActivity(new Intent(context, FeedBack.class));
-                ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.my_name:
                 if (Tool.JudgeIsLogin(context)) {
                     Tool.ShowDialog(getContext(), User.getInstance().getUserName(), "编辑用户名");
-                    ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 }
                 break;
             case R.id.my_sign:
                 if (Tool.JudgeIsLogin(context)) {
                     Intent intent1 = new Intent(getContext(), Edit_sign.class);
                     startActivity(intent1);
-                    ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 }
                 break;
             case R.id.img_sex:
@@ -308,7 +307,7 @@ public class Myself extends Fragment implements View.OnClickListener {
                     });
                     Dialog dialog = builder.create();
                     dialog.show();
-                    ((Activity) context).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    ((Activity) context).overridePendingTransition(App.enterAnim, App.exitAnim);
                 }
                 break;
             case R.id.my_switch_button:
@@ -337,8 +336,11 @@ public class Myself extends Fragment implements View.OnClickListener {
         intent.setAction("CHANGE_MODE");
         getActivity().sendBroadcast(intent);
         getActivity().finish();
-        startActivity(new Intent(getActivity(), getActivity().getClass()));
-        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        Intent intent1 = new Intent(getActivity(), getActivity().getClass());
+        intent1.putExtra("FLAG", true);
+        startActivity(intent1);
+        App.isChangingMode = true;
+        getActivity().overridePendingTransition(App.enterAnim, App.exitAnim);
 
     }
 

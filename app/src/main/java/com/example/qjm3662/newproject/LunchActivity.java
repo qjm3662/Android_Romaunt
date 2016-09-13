@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.widget.TimePicker;
 
 import com.example.qjm3662.newproject.Main_UI.MainActivity;
+import com.example.qjm3662.newproject.Tool.ActivityAnim;
 import com.example.qjm3662.newproject.Tool.Titanic;
 import com.example.qjm3662.newproject.Tool.TitanicTextView;
 
@@ -15,6 +16,7 @@ public class LunchActivity extends Activity {
 
     private Context context;
     private Titanic titanic;
+    private TitanicTextView myTitanicTextView;
 
 //    @Override
 //    protected void onResume() {
@@ -31,7 +33,7 @@ public class LunchActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        TitanicTextView myTitanicTextView = (TitanicTextView) findViewById(R.id.titanic_tv);
+        myTitanicTextView = (TitanicTextView) findViewById(R.id.titanic_tv);
         context = this;
         titanic = new Titanic(this);
         titanic.start(myTitanicTextView);
@@ -49,9 +51,10 @@ public class LunchActivity extends Activity {
             public void run() {
                 Intent intent = new Intent();
                 intent.setClass(context, MainActivity.class);
-                startActivity(intent);
+//                startActivity(intent);
+                ActivityAnim.startActivityWithAnim(LunchActivity.this, intent, ActivityAnim.ANIM_MODE_EXPLODE);
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                overridePendingTransition(App.enterAnim, App.exitAnim);
             }
         }, 3000);
 

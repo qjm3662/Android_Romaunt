@@ -63,7 +63,7 @@ public class collection extends ListActivity implements View.OnClickListener {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
     @Override

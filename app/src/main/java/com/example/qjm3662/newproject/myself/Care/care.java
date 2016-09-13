@@ -1,11 +1,9 @@
 package com.example.qjm3662.newproject.myself.Care;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Finding.HomePage;
-import com.example.qjm3662.newproject.Finding.StoryView;
 import com.example.qjm3662.newproject.R;
 
 public class care extends ListActivity implements View.OnClickListener {
@@ -99,7 +96,7 @@ public class care extends ListActivity implements View.OnClickListener {
         i.putExtra("position", position);
         i.putExtra("FLAG_WHERE", flag);
         startActivity(i);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
 
     }
 
@@ -107,6 +104,6 @@ public class care extends ListActivity implements View.OnClickListener {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 }

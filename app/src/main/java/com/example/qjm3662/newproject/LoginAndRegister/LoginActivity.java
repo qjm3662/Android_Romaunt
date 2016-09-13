@@ -5,31 +5,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Data.Final_Static_data;
-import com.example.qjm3662.newproject.Main_UI.MainActivity;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.Call;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -129,7 +117,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.forget_password:
                 Intent intent = new Intent(context, Register_UI.class);
                 startActivityForResult(intent, Final_Static_data.REQUEST_CODE_LOG_BACK);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
         }
     }

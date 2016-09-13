@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
 
+import com.example.qjm3662.newproject.Data.Bitmap_file_dir;
 import com.example.qjm3662.newproject.Data.CommentItem_add;
 import com.example.qjm3662.newproject.Data.Story;
 import com.example.qjm3662.newproject.Data.StoryBean;
 import com.example.qjm3662.newproject.Data.StoryDB;
-import com.example.qjm3662.newproject.Data.UserBase;
+import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Tool.Tool;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
@@ -42,12 +42,12 @@ public class App extends Application {
     //广场故事列表
     public static List<StoryBean> Public_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
     //与广场故事配套的，储存作者相关信息
-    public static List<UserBase> Public_Story_User = Collections.synchronizedList(new ArrayList<UserBase>());
+    public static List<User> Public_Story_User = Collections.synchronizedList(new ArrayList<User>());
 
     //关注我的人列表
-    public static List<UserBase> Public_Care_Me = Collections.synchronizedList(new ArrayList<UserBase>());
+    public static List<User> Public_Care_Me = Collections.synchronizedList(new ArrayList<User>());
     //我关注的人列表
-    public static List<UserBase> Public_Care_Other = Collections.synchronizedList(new ArrayList<UserBase>());
+    public static List<User> Public_Care_Other = Collections.synchronizedList(new ArrayList<User>());
 
     //收藏故事列表
     public static List<StoryBean> Public_Collected_StoryList = Collections.synchronizedList(new ArrayList<StoryBean>());
@@ -65,7 +65,7 @@ public class App extends Application {
     public static List<CommentItem_add> Public_Comment_List = Collections.synchronizedList(new ArrayList<CommentItem_add>());
 
     //暂时缓存以阅读文章的图片资源，App退出后自动删除
-    public static Map<String, Bitmap> Public_Picture_Cache = Collections.synchronizedMap(new HashMap<String, Bitmap>());
+    public static Map<String, Bitmap_file_dir> Public_Picture_Cache = Collections.synchronizedMap(new HashMap<String, Bitmap_file_dir>());
 
 
     public static boolean Switch_state_mode = false;
@@ -79,6 +79,12 @@ public class App extends Application {
 
     public static float width;
     public static String pro_cache_dir;
+    public static boolean isChangingMode = false;
+
+
+    //Activity界面过渡动画
+    public static int enterAnim = 0/*R.anim.enter_anim*/;
+    public static int exitAnim = 0/*R.anim.out_anim*/;
 
     @Override
     public void onCreate() {
@@ -106,10 +112,10 @@ public class App extends Application {
 
 
     public static void openDB() {
-        if(dbWrite.isOpen()){
+        if (dbWrite.isOpen()) {
             dbWrite.close();
         }
-        if(dbRead.isOpen()){
+        if (dbRead.isOpen()) {
             dbRead.close();
         }
         dbRead = storyDB.getReadableDatabase();
@@ -182,5 +188,27 @@ public class App extends Application {
         Public_Collected_StoryList.clear();
         //个人主页的文章列表
         Public_HomePage_StoryList.clear();
+        //我的文章列表
+        Public_My_Article_StoryList.clear();
+        //用于记录当前评论的是哪个文章
+        comment_story = null;
+        //评论列表
+        Public_Comment_List.clear();
+        //暂时缓存以阅读文章的图片资源，App退出后自动删除
+        Public_Picture_Cache.clear();
+    }
+
+    public static void deleteCachePicture(){
+        for(Bitmap_file_dir bfd : Public_Picture_Cache.values()){
+            Tool.deleteFile(bfd.getTargetDir());
+        }
+    }
+
+    @Override
+    public void onTerminate() {
+        System.out.println("TERMINATE");
+        super.onTerminate();
+        clearInformation();
+        deleteCachePicture();
     }
 }

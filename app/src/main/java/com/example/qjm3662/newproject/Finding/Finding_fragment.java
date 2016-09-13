@@ -63,6 +63,8 @@ public class Finding_fragment extends SwipeRefreshListFragment {
 
         adapter = new Finding_ListAdapter(getContext());
         setListAdapter(adapter);
+        //列表内容出现动画
+        Tool.ViewGroupAppear(swipeRefreshListView, 500);
     }
 
     @Override
@@ -79,7 +81,7 @@ public class Finding_fragment extends SwipeRefreshListFragment {
         Intent i = new Intent(getContext(), StoryView.class);
         i.putExtra("position", position);
         startActivity(i);
-        ((Activity)getContext()).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        ((Activity)getContext()).overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
 

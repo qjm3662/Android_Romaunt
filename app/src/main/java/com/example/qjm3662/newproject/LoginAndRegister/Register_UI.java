@@ -9,21 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.qjm3662.newproject.App;
 import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Data.Final_Static_data;
-import com.example.qjm3662.newproject.Main_UI.MainActivity;
 import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.Call;
 
 public class Register_UI extends Activity implements View.OnClickListener {
 
@@ -74,7 +65,7 @@ public class Register_UI extends Activity implements View.OnClickListener {
             case R.id.register_to_login:
                 intent = new Intent(Register_UI.this,LoginActivity.class);
                 startActivityForResult(intent,Final_Static_data.REQUEST_CODE_REG_TO_LOGIN);
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 finish();
                 break;
             case R.id.register_btn:

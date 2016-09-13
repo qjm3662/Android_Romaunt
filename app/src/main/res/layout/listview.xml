@@ -42,14 +42,32 @@
             android:text="标签"
             android:textColor="@color/green"/>
 
-        <lib.lhh.fiv.library.FrescoImageView
+        <!--<lib.lhh.fiv.library.FrescoImageView-->
+            <!--android:id="@+id/finding_listView_icon_my"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_marginLeft="14dp"-->
+            <!--android:layout_marginTop="12dp"-->
+            <!--android:src="@drawable/img_my"-->
+            <!--android:layout_below="@id/finding_listView_title"/>-->
+
+        <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/finding_listView_icon_my"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/img_my"
-            android:layout_below="@id/finding_listView_title"/>
+            android:layout_below="@id/finding_listView_title"
+            android:background="@drawable/circle_head"
+            android:scaleType="fitCenter"
+            app:riv_border_color="#333333"
+            app:riv_border_width="0dip"
+            app:riv_corner_radius="30dip"
+            app:riv_mutate_background="true"
+            app:riv_oval="true"
+            app:riv_tile_mode="clamp" />
+
         <TextView
             android:id="@+id/finding_listView_nickname"
             android:layout_width="wrap_content"
@@ -75,8 +93,10 @@
             android:layout_below="@+id/finding_listView_title"
             android:text="快让自己的签名变得长一点吧......"/>
         <RelativeLayout
-            android:layout_width="19dp"
-            android:layout_height="14dp"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_height="18dp"
             android:layout_below="@+id/finding_listView_title"
             android:layout_marginTop="14dp"
             android:layout_marginRight="14dp"
@@ -85,6 +105,7 @@
             >
         <TextView
             android:id="@+id/finding_listView_likeCount"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/green"

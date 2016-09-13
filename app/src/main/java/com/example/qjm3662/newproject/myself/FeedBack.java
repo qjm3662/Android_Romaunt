@@ -66,12 +66,12 @@ public class FeedBack extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.cloud_imageView_story:
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.tv_bar_right_text:
                 NetWorkOperator.getUserInfo(this, String.valueOf(User.getInstance().getId()));
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
         }
     }

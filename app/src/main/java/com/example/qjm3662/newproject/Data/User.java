@@ -1,5 +1,7 @@
 package com.example.qjm3662.newproject.Data;
 
+import android.graphics.Bitmap;
+
 import java.util.List;
 
 /**
@@ -9,13 +11,34 @@ import java.util.List;
 public class User extends UserBase{
 
     private UserStory UserStory;
-    private List<UserBase> follower;
-    private List<UserBase> following;
+    private List<User> follower;
+    private List<User> following;
     private int collectedStoriesCount;      //收藏的故事数目
+    private Bitmap bitmap;
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
 
     public static void setInstance(User instance) {
         User.instance = instance;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "User{" +
+                "UserStory=" + UserStory +
+                ", follower=" + follower +
+                ", following=" + following +
+                ", collectedStoriesCount=" + collectedStoriesCount +
+                '}';
+    }
+
     public void setUserStory(com.example.qjm3662.newproject.Data.UserStory userStory) {
         UserStory = userStory;
     }
@@ -24,19 +47,19 @@ public class User extends UserBase{
         return UserStory;
     }
 
-    public List<UserBase> getFollower() {
+    public List<User> getFollower() {
         return follower;
     }
 
-    public void setFollower(List<UserBase> follower) {
+    public void setFollower(List<User> follower) {
         this.follower = follower;
     }
 
-    public List<UserBase> getFollowing() {
+    public List<User> getFollowing() {
         return following;
     }
 
-    public void setFollowing(List<UserBase> following) {
+    public void setFollowing(List<User> following) {
         this.following = following;
     }
 

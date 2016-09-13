@@ -66,13 +66,13 @@ public class Edit_sign extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.cloud_imageView_story:
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.tv_bar_right_text:
                 User.getInstance().setSign(et_sign.getText().toString());
                 NetWorkOperator.UpDateUserInfo(this);
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
         }
     }
@@ -81,7 +81,7 @@ public class Edit_sign extends Activity implements View.OnClickListener {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        overridePendingTransition(App.enterAnim, App.exitAnim);
     }
 
 }

@@ -17,7 +17,6 @@ import com.example.qjm3662.newproject.ChangeModeBroadCastReceiver;
 import com.example.qjm3662.newproject.Data.User;
 import com.example.qjm3662.newproject.Finding.Finding_fragment;
 import com.example.qjm3662.newproject.LoginAndRegister.LoginActivity;
-import com.example.qjm3662.newproject.NetWorkOperator;
 import com.example.qjm3662.newproject.R;
 
 public class my_settings extends Activity implements View.OnClickListener {
@@ -101,15 +100,15 @@ public class my_settings extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.cloud_imageView_story:
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.l_public:
                 startActivity(new Intent(this, Public_settings.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.l_notification:
                 startActivity(new Intent(this, Notification.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
             case R.id.l_refer:
                 break;
@@ -149,7 +148,7 @@ public class my_settings extends Activity implements View.OnClickListener {
                 }
 
                 startActivity(new Intent(this, LoginActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 finish();
                 break;
         }

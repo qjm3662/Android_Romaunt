@@ -1,5 +1,6 @@
 package com.example.qjm3662.newproject.Main_UI;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -17,6 +18,7 @@ import com.example.qjm3662.newproject.Finding.Finding_fragment;
 import com.example.qjm3662.newproject.Message.MessageFragment;
 import com.example.qjm3662.newproject.R;
 import com.example.qjm3662.newproject.StoryView.StoryFragment;
+import com.example.qjm3662.newproject.Tool.ActivityAnim;
 import com.example.qjm3662.newproject.myself.main.Myself;
 
 
@@ -51,6 +53,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         intentFilter.addAction("CHANGE_MODE");
         receiver = new ChangeModeBroadCastReceiver(this);
         registerReceiver(receiver, intentFilter);
+
+        if(getIntent().getStringExtra("transition") != null){
+            ActivityAnim.ChangAnim(this);
+        }
         setContentView(R.layout.activity_main);
 
         img_bar_left = (ImageView) findViewById(R.id.cloud_imageView_story);
@@ -64,8 +70,16 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
         fragmentManager = getSupportFragmentManager();
         init();
-        setTab_selection(0);
+        if(App.isChangingMode){
+            setTab_selection(3);
+            System.out.println("FLAG: true");
+            App.isChangingMode = false;
+        }else{
+            setTab_selection(0);
+            System.out.println("FLAG: false");
+        }
         App.getSwitchInfo(this);
+
     }
 
 
@@ -206,6 +220,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         App.dbWrite.close();
         App.dbRead.close();
         unregisterReceiver(receiver);
+        System.out.println("MainActivity destroyed, delete the file cached");
+        App.deleteCachePicture();
     }
 
 
@@ -219,5 +235,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         find.setOnClickListener(this);
         message.setOnClickListener(this);
         my.setOnClickListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent home = new Intent(Intent.ACTION_MAIN);
+        home.addCategory(Intent.CATEGORY_HOME);
+        startActivity(home);
     }
 }

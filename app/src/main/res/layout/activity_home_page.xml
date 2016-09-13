@@ -1,286 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="?attr/personHomePage"
-    android:orientation="vertical"
-    tools:context="com.example.qjm3662.newproject.Finding.HomePage">
-
-    <include layout="@layout/title_bar" />
-
-    <RelativeLayout
+    tools:context="com.example.qjm3662.newproject.Finding.HomePage"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="94dp">
+        android:layout_height="match_parent"
+        android:background="?attr/personHomePage"
+        android:orientation="vertical"
+        android:id="@+id/container___"
+        tools:context="com.example.qjm3662.newproject.Finding.HomePage">
 
-        <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/hps_head"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/circle_head"
-            android:scaleType="fitCenter"
-            android:src="@drawable/img_defaultavatar"
-            app:riv_border_color="#333333"
-            app:riv_border_width="0dip"
-            app:riv_corner_radius="30dip"
-            app:riv_mutate_background="true"
-            app:riv_oval="true"
-            app:riv_tile_mode="clamp" />
+        <include layout="@layout/title_bar" />
 
-        <ImageView
-            android:id="@+id/hps_sex"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/img_small_male" />
-
-        <TextView
-            android:id="@+id/hps_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="18dp"
-            android:layout_toRightOf="@id/hps_head"
-            android:text="Robbin"
-            android:textColor="?attr/textColorDeep"
-            android:textSize="@dimen/ts_large" />
-
-        <TextView
-            android:id="@+id/hps_sign"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/hps_nickname"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_height="94dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/hps_head"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/circle_head"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_defaultavatar"
+                app:riv_border_color="#333333"
+                app:riv_border_width="0dip"
+                app:riv_corner_radius="30dip"
+                app:riv_mutate_background="true"
+                app:riv_oval="true"
+                app:riv_tile_mode="clamp"
+                android:transitionName="@string/other_transition_name"/>
+
+            <ImageView
+                android:id="@+id/hps_sex"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/img_small_male" />
+
+            <TextView
+                android:id="@+id/hps_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_toRightOf="@id/hps_head"
+                android:text="Robbin"
+                android:textColor="?attr/textColorDeep"
+                android:textSize="@dimen/ts_large" />
+
+            <TextView
+                android:id="@+id/hps_sign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hps_nickname"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/hps_head"
+                android:ellipsize="end"
+                android:lines="2"
+                android:text="I will do it now~"
+                android:textColor="?attr/textColorLight"
+                android:textSize="@dimen/ts_small" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/div_line"
+            android:background="@color/gray_normal"></View>
+
+        <LinearLayout
+
+            android:id="@+id/ll_0"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/hps_head"
-            android:ellipsize="end"
-            android:lines="2"
-            android:text="I will do it now~"
-            android:textColor="?attr/textColorLight"
-            android:textSize="@dimen/ts_small" />
-    </RelativeLayout>
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/div_line"
-        android:background="@color/gray_normal"></View>
-
-    <LinearLayout
-
-        android:id="@+id/ll_0"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|bottom"
-                android:text="@string/fan"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-
-            <TextView
-                android:id="@+id/hps_fan_num"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="100"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|bottom"
-                android:text="@string/attention"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-
-            <TextView
-                android:id="@+id/hps_concern_num"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="100"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|bottom"
-                android:text="@string/article"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-
-            <TextView
-                android:id="@+id/hps_article_num"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="100"
-                android:textColor="?attr/textColorLight"
-                android:textSize="@dimen/ts_large" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/div_line"
-        android:background="@color/gray_normal"></View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:background="?attr/personHomePage_concern"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/l_private_letter"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="20dp"
-                    android:layout_marginRight="35dp"
-                    android:src="@drawable/img_private_message" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="私信"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal|bottom"
+                    android:text="@string/fan"
+                    android:textColor="?attr/textColorLight"
+                    android:textSize="@dimen/ts_large" />
+
+                <TextView
+                    android:id="@+id/hps_fan_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="100"
                     android:textColor="?attr/textColorLight"
                     android:textSize="@dimen/ts_large" />
             </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/gray_deep" />
-
-        <LinearLayout
-            android:id="@+id/l_concern"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="20dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginRight="35dp"
-                    android:src="@drawable/img_attention" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="关注"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal|bottom"
+                    android:text="@string/attention"
+                    android:textColor="?attr/textColorLight"
+                    android:textSize="@dimen/ts_large" />
+
+                <TextView
+                    android:id="@+id/hps_concern_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="100"
                     android:textColor="?attr/textColorLight"
                     android:textSize="@dimen/ts_large" />
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="34dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal|bottom"
+                    android:text="@string/article"
+                    android:textColor="?attr/textColorLight"
+                    android:textSize="@dimen/ts_large" />
+
+                <TextView
+                    android:id="@+id/hps_article_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="100"
+                    android:textColor="?attr/textColorLight"
+                    android:textSize="@dimen/ts_large" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <View
-            android:layout_width="6dp"
-            android:layout_height="34dp"
-            android:background="?attr/barBackground" />
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/div_line"
+            android:background="@color/gray_normal"></View>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="文章"
-            android:textColor="?attr/textColorLight"
-            android:textSize="@dimen/ts_large" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="?attr/personHomePage_concern"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/l_private_letter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center">
 
-        <com.yalantis.phoenix.PullToRefreshView
-            android:id="@+id/pull_to_refresh"
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="35dp"
+                        android:src="@drawable/img_private_message" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="私信"
+                        android:textColor="?attr/textColorLight"
+                        android:textSize="@dimen/ts_large" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/gray_deep" />
+
+            <LinearLayout
+                android:id="@+id/l_concern"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="35dp"
+                        android:src="@drawable/img_attention" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注"
+                        android:textColor="?attr/textColorLight"
+                        android:textSize="@dimen/ts_large" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="34dp">
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="34dp"
+                android:background="?attr/barBackground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="文章"
+                android:textColor="?attr/textColorLight"
+                android:textSize="@dimen/ts_large" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ListView
-                android:id="@android:id/list"
+            <com.yalantis.phoenix.PullToRefreshView
+                android:id="@+id/pull_to_refresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="@color/dark_light"
-                android:dividerHeight="@dimen/div_line">
+                android:layout_height="match_parent">
 
-            </ListView>
-        </com.yalantis.phoenix.PullToRefreshView>
+                <ListView
+                    android:id="@android:id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/dark_light"
+                    android:dividerHeight="@dimen/div_line">
 
-        <TextView
-            android:id="@id/android:empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Oh on!(ÒωÓױ)！！！"
-            android:textColor="?attr/textColorLight"
-            android:textSize="24sp" />
-    </RelativeLayout>
+                </ListView>
+            </com.yalantis.phoenix.PullToRefreshView>
+
+            <TextView
+                android:id="@id/android:empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Oh on!(ÒωÓױ)！！！"
+                android:textColor="?attr/textColorLight"
+                android:textSize="24sp" />
+        </RelativeLayout>
 
 
+    </LinearLayout>
 </LinearLayout>

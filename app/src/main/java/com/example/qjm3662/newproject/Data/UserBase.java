@@ -8,8 +8,8 @@ public class UserBase {
     private int id;
     private String mobile;
     private String avatar = "111";
-    private String sign;                    //签名
-    private String userName;
+    private String sign = "111";                    //签名
+    private String userName = "111";
     private String token;
     private String LoginToken;
     private int sex;
@@ -19,6 +19,24 @@ public class UserBase {
     private int aboutNotice;         //关注我的是否公开
     private int updateNotice;         //关注我的是否公开
 
+    @Override
+    public String toString() {
+        return "UserBase{" +
+                "id=" + id +
+                ", mobile='" + mobile + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", sign='" + sign + '\'' +
+                ", userName='" + userName + '\'' +
+                ", token='" + token + '\'' +
+                ", LoginToken='" + LoginToken + '\'' +
+                ", sex=" + sex +
+                ", followingEnable=" + followingEnable +
+                ", followerEnable=" + followerEnable +
+                ", noticeEnable=" + noticeEnable +
+                ", aboutNotice=" + aboutNotice +
+                ", updateNotice=" + updateNotice +
+                '}';
+    }
 
     public void setId(int id) {
         this.id = id;

@@ -124,7 +124,7 @@ public class Notification extends Activity implements View.OnClickListener {
                 break;
             case R.id.cloud_imageView_story:
                 finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(App.enterAnim, App.exitAnim);
                 break;
 
         }
