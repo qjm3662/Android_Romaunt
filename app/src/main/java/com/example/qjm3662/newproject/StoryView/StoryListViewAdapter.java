@@ -129,6 +129,7 @@ public class StoryListViewAdapter extends BaseSwipeAdapter {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+                ((SwipeLayout)vv).close();
                 EasySweetAlertDialog.SuccessCallBack callBack = new EasySweetAlertDialog.SuccessCallBack() {
                     @Override
                     public void Success() {
