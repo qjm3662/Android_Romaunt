@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by qjm3662 on 2016/5/30 0030.
  */
@@ -90,9 +92,9 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
-//        //极光推送初始化
-//        JPushInterface.setDebugMode(true);
-//        JPushInterface.init(this);
+        //极光推送初始化
+        JPushInterface.setDebugMode(true);          //设置调试模式
+        JPushInterface.init(this);
 
         //获取数据库
         storyDB = new StoryDB(this);

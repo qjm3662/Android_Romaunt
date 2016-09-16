@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.9\jars\libs\jpush-android-2.1.9.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0106e393d23c8474030e82f27818390ea0b969c4">
+        <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\jpush-android-2.1.9_a9dad191379025a001ef7f0f500aeca7d6a152e9\classes.dex" />
+    </item>
+    <item
         jar="C:\Users\tanshunwang\.gradle\caches\modules-2\files-2.1\com.netflix.feign\feign-core\8.17.0\4132f06a05d3cd268704c41e749b9aa47919236a\feign-core-8.17.0.jar"
         jumboMode="true"
         revision="24.0.0"
@@ -14,6 +21,13 @@
         revision="24.0.0"
         sha1="67da8e0d8a8ef79c461a489f9f7bb3e86e23ccae">
         <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\animal-sniffer-annotation-1.0_b596193c4f23824083111426587b0fdfb426cb19\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.9\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="6f2466c8b6326a76e0c3d7d6f9c17e74bd0d0c50">
+        <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.jiguang-jpush-2.1.9_02d1389d0a534017471480336d515d81f693471b\classes.dex" />
     </item>
     <item
         jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.10.0\jars\classes.jar"
@@ -86,13 +100,6 @@
         <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_4581839e5de765f340b1c6981959c8ccbeab56d6\classes.dex" />
     </item>
     <item
-        jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\libs\jpush-android-2.1.8.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="86f15a6e7555400affa351041374d5129e99660e">
-        <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\jpush-android-2.1.8_323b577801bb5dcdc730526a235a5655f92b0cfb\classes.dex" />
-    </item>
-    <item
         jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\com.yalantis\phoenix\1.2.3\jars\classes.jar"
         jumboMode="true"
         revision="24.0.0"
@@ -110,15 +117,8 @@
         jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="34fe6a2d0be01a29844bed44d1436efb81321e2c">
+        sha1="3c1463a945e0dc75a50437cbeed67480c78cf1e2">
         <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_33e694b7731033dc3b07dcab4c0c821b9b23341e\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\exploded-aar\cn.jiguang\jpush\2.1.8\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.0"
-        sha1="6bae57dc18d9f50285151cc473361ddaddb156cd">
-        <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\cn.jiguang-jpush-2.1.8_553a409cbadf7c6a2ef5d2931a3460ed7bd89de0\classes.dex" />
     </item>
     <item
         jar="C:\Users\tanshunwang\.gradle\caches\modules-2\files-2.1\com.alexvasilkov\foldable-layout\1.2.0\134b63d8b604479ffb03ae58d271eb2dc580d9cc\foldable-layout-1.2.0.jar"
@@ -208,7 +208,7 @@
         jar="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="fd29df50e5c361ae2056a18d2c238a85abecda85">
+        sha1="2dfcc5a98bd83d597ffc7ea687081fe510ea95ed">
         <dex dex="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_983a06e2d64555e3b9e96c8588c2899085ea0b33\classes.dex" />
     </item>
     <item

@@ -10,170 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5013db6-9bde-4e9d-a65d-ed8d57bd214e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jpush_2_1_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/TestUi/TestSweetAlertDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/EasySweetAlertDialog.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jpush_android_2_1_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips64/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libjpush217.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/armeabi-v7a/libbitherjni.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/armeabi-v7a/libjpegbither.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/armeabi/libbitherjni.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/armeabi/libjpegbither.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/jpush-android-2.1.7.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/arm64-v8a/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/armeabi-v7a/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/armeabi/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/jpush-android-2.1.9.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/mips/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/mips64/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/x86/libjpush219.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/x86_64/libjpush219.so" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/jpush_2_1_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jpush_2_1_9.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API文档/README.md" afterPath="$PROJECT_DIR$/API文档/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API文档/各类型数据格式v2.0.txt" afterPath="$PROJECT_DIR$/API文档/各类型数据格式v2.0.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android_Romaunt.iml" afterPath="$PROJECT_DIR$/Android_Romaunt.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NewProject.iml" afterPath="$PROJECT_DIR$/NewProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Romaint.iml" afterPath="$PROJECT_DIR$/Romaint.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="$PROJECT_DIR$/app/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/qjm3662/newproject/ActivityTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/qjm3662/newproject/ActivityTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/qjm3662/newproject/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/qjm3662/newproject/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/ChangeModeBroadCastReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/ChangeModeBroadCastReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Bitmap_file_dir.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Bitmap_file_dir.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/CommentItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/CommentItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/CommentItem_add.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/CommentItem_add.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Final_Static_data.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Final_Static_data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Story.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/Story.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/StoryBean.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/StoryBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/StoryDB.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/StoryDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/UserBase.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/UserBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/UserStory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Data/UserStory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/HomePage_story_adapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/HomePage_story_adapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LoginAndRegister/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LoginAndRegister/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LoginAndRegister/Register_UI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LoginAndRegister/Register_UI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LunchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LunchActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Main_UI/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Main_UI/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Message/MessageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Message/MessageFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/NWO_2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/NWO_2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/Edit_Story.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryListViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryListViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/ActivityAnim.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/ActivityAnim.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/DestinyUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/DestinyUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/GuiUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/GuiUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/NativeUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/NativeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Titanic.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Titanic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/TitanicTextView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/TitanicTextView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/Tool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Article/ArticleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Article/ArticleActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Article/MyArticleAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Article/MyArticleAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Care/care.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Care/care.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Edit_sign.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/Edit_sign.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/FeedBack.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/FeedBack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/MyDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/MyDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/collection/Collection_Adapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/collection/Collection_Adapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/collection/collection.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/collection/collection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/Notification.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/Notification.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/Public_settings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/Public_settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/my_settings.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/myself/settings/my_settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/enter_anim.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/enter_anim.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/out_anim.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/out_anim.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/richpush_btn_selector.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/richpush_btn_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_info_black_24dp.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_info_black_24dp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_notifications_black_24dp.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_notifications_black_24dp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_sync_black_24dp.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_sync_black_24dp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/footer_progressbar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/footer_progressbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/selector_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/selector_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button_bg.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/circle_head.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/circle_head.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/popwindow_rec.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/popwindow_rec.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_btn.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_cnt.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_cnt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_comment_edit.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_comment_edit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_input.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_input.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_set.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_set.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_tip.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_tip.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_title.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_edit__acticity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_edit__acticity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_main2.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/activity_main2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/fragment_message.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/fragment_message.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/fragment_story.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/fragment_story.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/slide_view_merge.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/slide_view_merge.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v17/swipe_refresh_footer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v17/swipe_refresh_footer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v21/activity_comment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v21/activity_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-v21/login_ui.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-v21/login_ui.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_article.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_article.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_care.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_care.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_collection.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_collection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_comment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit__acticity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit__acticity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit__story.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit__story.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_sign.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_sign.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lunch.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lunch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_public_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_public_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register__ui.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register__ui.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_story_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_story_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_story_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_story_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_toast_test.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_toast_test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/comment_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/comment_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_story2.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_story2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/home_page_story_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_page_story_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/jpush_popwin_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/jpush_popwin_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/jpush_webview_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/jpush_webview_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/listview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/listview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/login_ui.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/login_ui.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_bar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/myattention_listview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/myattention_listview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/myself.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/myself.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/popwindow_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/popwindow_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/story_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/story_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/title_bar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/title_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_info_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_info_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/transition-v21/arc_motion.xml" afterPath="$PROJECT_DIR$/app/src/main/res/transition-v21/arc_motion.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/jpush_style.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/jpush_style.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/keep.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/keep.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_data_sync.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_data_sync.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_headers.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_notification.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/example/qjm3662/newproject/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/qjm3662/newproject/ExampleUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/example/qjm3662/newproject/GetNetWorkInfomationTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/qjm3662/newproject/GetNetWorkInfomationTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="Android_Romaunt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -203,21 +55,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.6875">
+              <caret line="35" column="97" selection-start-line="35" selection-start-column="97" selection-end-line="35" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EasySweetAlertDialog.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EasySweetAlertDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/EasySweetAlertDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14631337">
+            <state vertical-scroll-proportion="0.0">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LunchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LunchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -226,38 +98,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.36111">
+            <state vertical-scroll-proportion="-117.0">
               <caret line="180" column="62" selection-start-line="180" selection-start-column="62" selection-end-line="180" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/Comment/CommentAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePage_story_adapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Finding/HomePage_story_adapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -299,8 +141,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            <state vertical-scroll-proportion="-14.464286">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -802,9 +644,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare cn.jiguang:jpush:2.1.8" />
+                <option name="description" value="Prepare cn.jiguang:jpush:2.1.9" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareCnJiguangJpush218Library" />
+                <option name="name" value="prepareCnJiguangJpush219Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare cn.pedant.sweetalert:library:1.3" />
@@ -1510,9 +1352,9 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare cn.jiguang:jpush:2.1.8" />
+                <option name="description" value="Prepare cn.jiguang:jpush:2.1.9" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareCnJiguangJpush218Library" />
+                <option name="name" value="prepareCnJiguangJpush219Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare cn.pedant.sweetalert:library:1.3" />
@@ -1797,7 +1639,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4421484172669" />
+        <entry key="$PROJECT_DIR$" value="4421739772721" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2063,6 +1905,7 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-v4/24.1.1/57c006a017aa2cbe3d32511e5ac28ee76cf9f51b/support-v4-24.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/24.1.1/eb14224a80834c4eb124970a12e3e46d0a5d20f2/recyclerview-v7-24.1.1.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.jiguang/jpush/2.1.9/a55dac941c73852db9302f6d98681548e92ec86a/jpush-2.1.9.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zhy/okhttputils/2.4.1/ea7732a44d774f209e7a40a6ee17e89550b1c5f8/okhttputils-2.4.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/homhomlin.lib/frescoimageview/1.3.0/b9b9fea70d1d0b85fa0ebae5895f2d5981685ce9/frescoimageview-1.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/fresco/0.10.0/8576630feea3d08eb681dec389a472623179f84d/fresco-0.10.0.aar" />
@@ -2076,7 +1919,6 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.alexvasilkov/foldable-layout/1.2.0/134b63d8b604479ffb03ae58d271eb2dc580d9cc/foldable-layout-1.2.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.keyboardsurfer.android.widget/crouton/1.8.5/edd27632bd141132cbafbda3a579ed0c332ff974/crouton-1.8.5.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.pedant.sweetalert/library/1.3/4d87f52c453faf689c87371ffa33316b8c0748f2/library-1.3.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.jiguang/jpush/2.1.8/691028dcb0f194a9a29e4bf149da0e427c55f1e1/jpush-2.1.8.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/drawee/0.10.0/c594f9c23f844d08ecd4c0e42df40d80767d4b18/drawee-0.10.0.aar" />
@@ -2248,6 +2090,9 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryListViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LunchActivity.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
@@ -2302,6 +2147,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android_Romaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android_Romaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android_Romaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android_Romaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="x86" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -2328,236 +2205,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tool" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestUi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StoryView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myself" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Message" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Main_UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoginAndRegister" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Finding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android_Romaunt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -2566,8 +2213,15 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/jpush-android-2.1.9.jar!/" />
     <property name="device.picker.selection" value="Nexus_5X_API_22" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tanshunwang\Documents\GitHub\Android_Romaunt" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2849,7 +2503,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473774033907</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="...">
+      <created>1473997594827</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1473997594827</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2866,12 +2526,12 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48606467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.036789298" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2879,7 +2539,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11140725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20149253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2936,7 +2596,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="头像暂时缓存，提示框改版，修复bug少许" />
-    <option name="LAST_COMMIT_MESSAGE" value="头像暂时缓存，提示框改版，修复bug少许" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2968,14 +2629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -3028,30 +2681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.36111">
-          <caret line="180" column="62" selection-start-line="180" selection-start-column="62" selection-end-line="180" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/StoryView/StoryListViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3065,8 +2694,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/Tool/EasySweetAlertDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14631337">
+        <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/LunchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.464286">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/qjm3662/newproject/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-117.0">
+          <caret line="180" column="62" selection-start-line="180" selection-start-column="62" selection-end-line="180" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6875">
+          <caret line="35" column="97" selection-start-line="35" selection-start-column="97" selection-end-line="35" selection-end-column="97" />
           <folding />
         </state>
       </provider>

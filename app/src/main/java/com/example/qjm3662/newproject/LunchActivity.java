@@ -12,23 +12,25 @@ import com.example.qjm3662.newproject.Tool.ActivityAnim;
 import com.example.qjm3662.newproject.Tool.Titanic;
 import com.example.qjm3662.newproject.Tool.TitanicTextView;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class LunchActivity extends Activity {
 
     private Context context;
     private Titanic titanic;
     private TitanicTextView myTitanicTextView;
 
-//    @Override
-//    protected void onResume() {
-//        JPushInterface.onResume(this);
-//        super.onResume();
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        JPushInterface.onPause(this);
-//        super.onPause();
-//    }
+    @Override
+    protected void onResume() {
+        JPushInterface.onResume(this);
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        JPushInterface.onPause(this);
+        super.onPause();
+    }
 
     @Override
     protected void onStart() {
